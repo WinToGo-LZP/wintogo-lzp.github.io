@@ -1,2 +1,0 @@
-播放出错，请不要选择起点站，请重新选择。
-There is an error in playback, please do not select the starting station, please select it again.
