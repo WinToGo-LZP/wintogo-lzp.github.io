@@ -2,7 +2,7 @@
 <html lang="cn">  
 <head>  
 <meta charset="UTF-8">  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<meta name="metro" content="A software to Simulator Dalian Metro Station">  
 <title>大连地铁报站模拟器Web版</title>  
 </head>  
 <body>  
@@ -13,11 +13,11 @@
         marquee.zimu {font-family: "Tahoma", "Arial", "思源黑体 CN Regular", "方正悠黑简体", "Microsoft YaHei", "微软雅黑", "黑体", "宋体"; background: #000000;}
         </style>
         <font size="7" color="#FF0000">
-        <marquee scrollamount="25" scrolldelay="20" class="zimu">乘客您好，欢迎乘坐大连地铁12号线。Welcome to the Dalian Metro Line 12.</marquee>
+        <marquee scrollamount="25" scrolldelay="20" class="zimu">欢迎使用大连地铁报站模拟器Web版！Welcome use Dalian Metro Station Simulator Web!</marquee>
         </font>
 
-<h1>大连地铁12号线</h1>  
-<h3 style="color: white;">旅顺新港==铁山==旅顺==塔河湾==龙王塘==黄泥川==蔡大岭==河口（换乘1号线）</h3>
+<h1 style="color: white;">大连地铁12号线🚇</h1>  
+<h3 style="color: greenyellow;">旅顺新港==铁山==旅顺==塔河湾==龙王塘==黄泥川==蔡大岭==河口（换乘1号线）</h3>
 <style>
     body {
         /*加载背景图：图片地址 不平铺 */
@@ -33,20 +33,20 @@
 
 <body background="background.jpg"></body>
   
-<label for="direction">方向:</label>  
+<label style="color: white;for="direction">方向:</label>  
 <select id="direction">  
     <option value="Lvshun New Port">旅顺新港</option>  
     <option value="Hekou">河口</option>  
 </select>  
   
-<label for="position">位置:</label>  
+<label style="color: white;for="position">位置:</label>  
 <select id="position">  
     <option value="next_station">下一站</option>  
     <!--<option value="arriving_station">将到站</option> --> 
     <option value="arrived_station">已到站</option>  
 </select>  
   
-<label for="station">站名:</label>  
+<label style="color: white;for="station">站名:</label>  
 <select id="station">  
     <option value="河口站">河口站</option>  
     <option value="蔡大岭站">蔡大岭站</option>
@@ -65,9 +65,10 @@
 <audio id="audioPlayer" preload="auto" style="display:none;">  
     <!-- 音频文件源会根据JavaScript动态设置 -->  
 </audio>  
-<h1>Made By Bilibili </h1>
-<h1><a href="https://space.bilibili.com/1283468503">@WinToGo-LZP</h1> 
-<h1><a href="https://space.bilibili.com/498607616">@Metro-老張114514</h1>
+<h1 style="color: white;">Made By Bilibili </h1>
+<h1><a style="color: orange;" href ="https://space.bilibili.com/1283468503">@WinToGo-LZP</h1> 
+<h1><a style="color: orange;" href="https://space.bilibili.com/498607616">@Metro-老張114514</h1>
+    <h1><a style="color: red;" href="https://github.com/WinToGo-LZP/WinToGo-LZP.github.io/blob/main/LICENSE">Apache-2.0 license</h1>
 <!--<h3 style="color: orangered;">正在播放>>></h3> <h2 style="color: orange;">等待操作...</h2>-->
 
 
