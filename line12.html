@@ -125,7 +125,7 @@ playBtn.addEventListener('click', function() {
         
     else if (direction === 'Hekou' && position === 'next_station' && station === '河口站') {  
         audioSrc = 'audio12/Hekou1.mp3';  
-        titleElement.innerHTML = '<span style="color:red;">欢迎您乘坐大连地铁12号线，本次列车终点站河口站，下一站是本次列车的终点站河口。要下车的乘客请携带好随身物品准备下车。服务监督电话：968600 </span><span style="color:green;">Next stop is the terminal Hekou Station. </span>';
+        titleElement.innerHTML = '<span style="color:red;">欢迎您乘坐大连地铁12号线，本次列车终点站河口站，下一站终点站河口。要下车的乘客请携带好随身物品准备下车。服务监督电话：968600 </span><span style="color:green;">Next stop is Hekou Station. </span>';
     } else if (direction === 'Hekou' && position === 'arrived_station' && station === '河口站') {
         audioSrc = 'audio12/Hekou2.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">终点站河口站到了，要下车的乘客请下车，下车时请注意站台与列车之间的间隙。 </span><span style="color:green;">We are now at the terminal Hekou Station. </span>';
@@ -176,7 +176,7 @@ playBtn.addEventListener('click', function() {
     //以下为旅顺新港方向的报站
     else if (direction === 'Lvshun New Port' && position === 'next_station' && station === '旅顺新港站') {  
         audioSrc = 'audio12/LvshunNP1.mp3';  
-        titleElement.innerHTML = '<span style="color:red;">欢迎您乘坐大连地铁12号线，本次列车开往旅顺新港车站，下一站是本次列车的终点站旅顺新港。要下车的乘客请携带好随身物品准备下车。服务监督电话：968600 </span><span style="color:green;">Next stop is the terminal Lvshun New Port Station. </span>';
+        titleElement.innerHTML = '<span style="color:red;">欢迎您乘坐大连地铁12号线，本次列车终点站旅顺新港站，下一站终点站旅顺新港。要下车的乘客请携带好随身物品准备下车。服务监督电话：968600 </span><span style="color:green;">Next stop is Lvshun New Port Station. </span>';
     } else if (direction === 'Lvshun New Port' && position === 'arrived_station' && station === '旅顺新港站') {
         audioSrc = 'audio12/LvshunNP2.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">终点站旅顺新港站到了，要下车的乘客请下车，下车时请注意站台与列车之间的间隙。 </span><span style="color:green;">We are now at the terminal Lvshun New Port Station. </span>';
