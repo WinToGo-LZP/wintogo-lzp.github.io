@@ -1,3 +1,4 @@
+<body background="image/Line12.jpg"></body>
 大连地铁报站模拟器WEB版
 项目介绍
 
