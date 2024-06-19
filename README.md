@@ -1,4 +1,3 @@
-<img src="image/Line12.jpg"</img>
 大连地铁报站模拟器WEB版
 项目介绍
 
