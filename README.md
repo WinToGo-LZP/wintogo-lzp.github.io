@@ -16,6 +16,8 @@
 在线路页面，选择具体的站点报站。
 点击播放按钮，即可在线收听报站音频。
 如需下载报站音频，点击下载按钮即可。
+当前提供1号线，3号线，12号线以及13号线，其他线路敬请期待！
+安卓用户可在右侧下载安卓启动器
 
 贡献与反馈
 
@@ -59,6 +61,8 @@ Select the subway line you want to listen to.
 On the Line page, select a specific station to report the station.
 Click the play button to listen to the audio of the newspaper station online.
 If you want to download the newspaper audio, click the download button.
+Currently, Line 1, Line 3, Line 12 and Line 13 are available, so stay tuned!
+Android users can download the Android launcher .
 
 Contributions & Feedback
 
