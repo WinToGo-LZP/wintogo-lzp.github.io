@@ -1,0 +1,556 @@
+<!DOCTYPE html>  
+<html lang="cn">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="metro" content="A software to Simulator Dalian Metro Station">  
+<title>大连地铁报站模拟器Web版</title>  
+</head>  
+<body>  
+    <link rel="stylesheet" type="css" href="style.css">
+
+<!--LED标题-->
+    <style>
+        marquee.zimu {font-family: "Tahoma", "Arial", "思源黑体 CN Regular", "方正悠黑简体", "Microsoft YaHei", "微软雅黑", "黑体", "宋体"; background: #000000;}
+        </style>
+        <font size="7" color="#FF0000">
+        <marquee scrollamount="25" scrolldelay="20" class="zimu">欢迎使用大连地铁报站模拟器Web版！Welcome use Dalian Metro Station Simulator Web!</marquee>
+        </font>
+        
+        <button onclick="goBack()">返回主页</button>
+<h1 style="color: greenyellow;">大连地铁3号线支线+13号线🚇</h1>  
+<h3 style="color: yellow;">13号线=>普兰店振兴街=普兰店开发区=海湾高中=大医三院=长店堡=石河北海=普湾体育场=石河黄旗=三十里堡=二十里堡=十三里=九里</h3>
+<h3 style="color: rgb(255, 0, 76);">3号线支线=>九里=十九局=和平路=东山路=鸿玮澜山=通世泰=开发区(换乘3号线)</h3>
+
+
+<style>
+    body {
+        /*加载背景图：图片地址 不平铺 */
+        background: url(image/Line13.jpg) no-repeat;
+        /* 让背景图基于容器大小伸缩 */
+        background-size: 100% 100%;
+        background-attachment: fixed;
+        label, select 
+        display: block;
+        margin-top: 10px; /* 可选：增加一点上边距 */
+   
+
+    }
+
+
+</style>
+
+
+
+
+<body background="image/line13.jpg"></body>
+  
+<label style="color: white;for="direction">方向:</label>  
+<select id="direction">  
+    <option value="Pulandian">普兰店振兴街</option>  
+    <option value="Kaifaqu">开发区</option>  
+</select>  
+  
+<label style="color: white;for="position">位置:</label>  
+<select id="position">  
+    <option value="next_station">下一站</option>  
+    <option value="arriving_station">将到站</option>  
+    <option value="arrived_station">已到站</option>  
+</select>  
+  
+<label style="color: white;for="station">站名:</label>  
+<select id="station">  
+    <option value="开发区">开发区</option>  
+    <option value="通世泰">通世泰</option>
+    <option value="鸿玮澜山">鸿玮澜山</option>
+    <option value="东山路">东山路</option>
+    <option value="和平路">和平路</option>
+    <option value="十九局">十九局</option>
+    <option value="九里">九里</option>
+    <option value="十三里">十三里</option>
+    <option value="二十里堡">二十里堡</option>
+    <option value="三十里堡">三十里堡</option>
+    <option value="石河黄旗">石河黄旗</option>
+    <option value="普湾体育场">普湾体育场</option>
+    <option value="石河北海">石河北海</option>
+    <option value="长店堡">长店堡</option>
+    <option value="大医三院">大医三院</option>
+    <option value="海湾高中">海湾高中</option>
+    <option value="普兰店开发区">普兰店开发区</option>
+    <option value="普兰店振兴街">普兰店振兴街</option>
+
+
+
+    <!-- 可以继续添加其他站名 -->  
+</select>  
+  
+<button id="playBtn">开始播放▶︎</button>  
+<button id="stopBtn">停止播放⏹</button>  
+<a <a style="color: white;" href ="https://cloud.189.cn/t/6vuMbafauErm （访问码：9bjj）" download="">获取下载报站音频</a>
+  
+<audio id="audioPlayer" preload="auto" style="display:none;">  
+    <!-- 音频文件源会根据JavaScript动态设置 -->  
+</audio>  
+<h1 style="color: white;">Made By Bilibili </h1>
+<h1><a style="color: greenyellow;" href ="https://space.bilibili.com/1283468503">@WinToGo-LZP</h1> 
+<h1><a style="color: greenyellow;" href="https://space.bilibili.com/498607616">@Metro-老張114514</h1>
+    <h1><a style="color: red;" href="https://github.com/WinToGo-LZP/WinToGo-LZP.github.io/blob/main/LICENSE">Apache-2.0 license</h1>
+<!--<h3 style="color: orangered;">正在播放>>></h3> <h2 style="color: orange;">等待操作...</h2>-->
+
+
+
+  
+<script>  
+        function goBack() {
+    window.history.back();
+}
+
+    
+
+const audioPlayer = document.getElementById('audioPlayer');  
+const playBtn = document.getElementById('playBtn');  
+const stopBtn = document.getElementById('stopBtn');  
+  
+playBtn.addEventListener('click', function() {  
+    const direction = document.getElementById('direction').value;  
+    const position = document.getElementById('position').value;  
+    const station = document.getElementById('station').value;  
+  
+    let audioSrc = '';  
+//以下部分为错误报站
+    var titleElement = document.querySelector('h2');
+    var titleElement = document.querySelector('marquee');
+ 
+    if (direction === 'Pulandian' && position === 'next_station' && station === '开发区') {
+        audioSrc = 'error.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">⚠播放出错，请不要选择起点站，请重新选择！</span><span style="color:green;">There is an error in playback, please do not select the starting station, please select it again.</span>';
+    
+    } else if (direction === 'Pulandian' && position === 'arriving_station' && station === '开发区') {
+        audioSrc = 'error.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">⚠播放出错，请不要选择起点站，请重新选择！</span><span style="color:green;">There is an error in playback, please do not select the starting station, please select it again.</span>';
+    } else if (direction === 'Pulandian' && position === 'arrived_station' && station === '开发区') {
+        audioSrc = 'error.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">⚠播放出错，请不要选择起点站，请重新选择！</span><span style="color:green;">There is an error in playback, please do not select the starting station, please select it again.</span>';
+    }
+      else if (direction === 'Kaifaqu' && position === 'next_station' && station === '普兰店振兴街') {
+        audioSrc = 'error.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">⚠播放出错，请不要选择起点站，请重新选择！</span><span style="color:green;">There is an error in playback, please do not select the starting station, please select it again.</span>';
+    
+    } else if (direction === 'Kaifaqu' && position === 'arriving_station' && station === '普兰店振兴街') {
+        audioSrc = 'error.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">⚠播放出错，请不要选择起点站，请重新选择！</span><span style="color:green;">There is an error in playback, please do not select the starting station, please select it again.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arrived_station' && station === '普兰店振兴街') {
+        audioSrc = 'error.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">⚠播放出错，请不要选择起点站，请重新选择！</span><span style="color:green;">There is an error in playback, please do not select the starting station, please select it again.</span>';
+    }
+        
+    
+
+//以上部分为错误报站
+//以下部分为普兰店开发区方向的报站
+    else if (direction === 'Pulandian' && position === 'next_station' && station === '通世泰') {
+        audioSrc = 'audio13/Pulandian/next/通世泰.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往普兰店振兴街站，前方到站通世泰。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Pulandian Zhenxing Street station.The next stop is Tostem.</span>';
+    
+    } else if (direction === 'Pulandian' && position === 'arriving_station' && station === '通世泰') {
+        audioSrc = 'audio13/Pulandian/arriving/通世泰.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">通世泰车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Tostem station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Pulandian' && position === 'arrived_station' && station === '通世泰') {
+        audioSrc = 'audio13/Pulandian/arrived/通世泰.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">通世泰车站到了。</span><span style="color:green;">We are now at Tostem station.</span>';
+    }
+    else if (direction === 'Pulandian' && position === 'next_station' && station === '鸿玮澜山') {
+        audioSrc = 'audio13/Pulandian/next/鸿玮澜山.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往普兰店振兴街站，前方到站鸿玮澜山。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Pulandian Zhenxing Street station.The next stop is Phoenix Peak.</span>';
+    
+    } else if (direction === 'Pulandian' && position === 'arriving_station' && station === '鸿玮澜山') {
+        audioSrc = 'audio13/Pulandian/arriving/鸿玮澜山.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">鸿玮澜山车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Phoenix Peak station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Pulandian' && position === 'arrived_station' && station === '鸿玮澜山') {
+        audioSrc = 'audio13/Pulandian/arrived/鸿玮澜山.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">鸿玮澜山车站到了。</span><span style="color:green;">We are now at Phoenix Peak station.</span>';
+    }
+    else if (direction === 'Pulandian' && position === 'next_station' && station === '东山路') {
+        audioSrc = 'audio13/Pulandian/next/东山路.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往普兰店振兴街站，前方到站东山路。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Pulandian Zhenxing Street station.The next stop is Dongshan Road.</span>';
+    
+    } else if (direction === 'Pulandian' && position === 'arriving_station' && station === '东山路') {
+        audioSrc = 'audio13/Pulandian/arriving/东山路.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">东山路车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Dongshan Road station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Pulandian' && position === 'arrived_station' && station === '东山路') {
+        audioSrc = 'audio13/Pulandian/arrived/东山路.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">东山路车站到了。</span><span style="color:green;">We are now at Dongshan Road station.</span>';
+    }
+   
+    else if (direction === 'Pulandian' && position === 'next_station' && station === '和平路') {
+        audioSrc = 'audio13/Pulandian/next/和平路.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往普兰店振兴街站，前方到站和平路。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Pulandian Zhenxing Street station.The next stop is Heping Road.</span>';
+    
+    } else if (direction === 'Pulandian' && position === 'arriving_station' && station === '和平路') {
+        audioSrc = 'audio13/Pulandian/arriving/和平路.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">和平路车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Heping Road station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Pulandian' && position === 'arrived_station' && station === '和平路') {
+        audioSrc = 'audio13/Pulandian/arrived/和平路.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">和平路车站到了。</span><span style="color:green;">We are now at Heping Road station.</span>';
+        
+    }
+
+    else if (direction === 'Pulandian' && position === 'next_station' && station === '十九局') {
+        audioSrc = 'audio13/Pulandian/next/十九局.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往普兰店振兴街站，前方到站十九局。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Pulandian Zhenxing Street station.The next stop is CR 19th Bureau.</span>';
+    
+    } else if (direction === 'Pulandian' && position === 'arriving_station' && station === '十九局') {
+        audioSrc = 'audio13/Pulandian/arriving/十九局.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">十九局车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at CR 19th Bureau station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Pulandian' && position === 'arrived_station' && station === '十九局') {
+        audioSrc = 'audio13/Pulandian/arrived/十九局.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">十九局车站到了。</span><span style="color:green;">We are now at CR 19th Bureau station.</span>';
+        
+    }
+    else if (direction === 'Pulandian' && position === 'next_station' && station === '九里') {
+        audioSrc = 'audio13/Pulandian/next/九里.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往普兰店振兴街站，前方到站九里。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Pulandian Zhenxing Street station.The next stop is Jiuli.</span>';
+    
+    } else if (direction === 'Pulandian' && position === 'arriving_station' && station === '九里') {
+        audioSrc = 'audio13/Pulandian/arriving/九里.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">九里车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Jiuli station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Pulandian' && position === 'arrived_station' && station === '九里') {
+        audioSrc = 'audio13/Pulandian/arrived/九里.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">九里车站到了。</span><span style="color:green;">We are now at Jiuli station.</span>';
+        
+    }
+    else if (direction === 'Pulandian' && position === 'next_station' && station === '十三里') {
+        audioSrc = 'audio13/Pulandian/next/十三里.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往普兰店振兴街站，前方到站十三里。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Pulandian Zhenxing Street station.The next stop is Shisanli.</span>';
+    
+    } else if (direction === 'Pulandian' && position === 'arriving_station' && station === '十三里') {
+        audioSrc = 'audio13/Pulandian/arriving/十三里.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">十三里车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Shisanli station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Pulandian' && position === 'arrived_station' && station === '十三里') {
+        audioSrc = 'audio13/Pulandian/arrived/十三里.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">十三里车站到了。</span><span style="color:green;">We are now at Shisanli station.</span>';
+        
+    }
+
+    else if (direction === 'Pulandian' && position === 'next_station' && station === '二十里堡') {
+        audioSrc = 'audio13/Pulandian/next/二十里堡.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往普兰店振兴街站，前方到站二十里堡。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Pulandian Zhenxing Street station.The next stop is Ershilipu.</span>';
+    
+    } else if (direction === 'Pulandian' && position === 'arriving_station' && station === '二十里堡') {
+        audioSrc = 'audio13/Pulandian/arriving/二十里堡.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">二十里堡车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Ershilipu station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Pulandian' && position === 'arrived_station' && station === '二十里堡') {
+        audioSrc = 'audio13/Pulandian/arrived/二十里堡.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">二十里堡车站到了。</span><span style="color:green;">We are now at Ershilipu station.</span>';
+        
+    }
+    else if (direction === 'Pulandian' && position === 'next_station' && station === '三十里堡') {
+        audioSrc = 'audio13/Pulandian/next/三十里堡.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往普兰店振兴街站，前方到站三十里堡。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Pulandian Zhenxing Street station.The next stop is Sanshilipu.</span>';
+    
+    } else if (direction === 'Pulandian' && position === 'arriving_station' && station === '三十里堡') {
+        audioSrc = 'audio13/Pulandian/arriving/三十里堡.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">三十里堡车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Sanshilipu station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Pulandian' && position === 'arrived_station' && station === '三十里堡') {
+        audioSrc = 'audio13/Pulandian/arrived/三十里堡.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">三十里堡车站到了。</span><span style="color:green;">We are now at Sanshilipu station.</span>';
+        
+    }
+    else if (direction === 'Pulandian' && position === 'next_station' && station === '石河黄旗') {
+        audioSrc = 'audio13/Pulandian/next/石河黄旗.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往普兰店振兴街站，前方到站石河黄旗。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Pulandian Zhenxing Street station.The next stop is Shihe Huangqi.</span>';
+    } else if (direction === 'Pulandian' && position === 'arriving_station' && station === '石河黄旗') {
+        audioSrc = 'audio13/Pulandian/arriving/石河黄旗.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">石河黄旗车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Shihe Huangqi station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Pulandian' && position === 'arrived_station' && station === '石河黄旗') {
+        audioSrc = 'audio13/Pulandian/arrived/石河黄旗.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">石河黄旗车站到了。</span><span style="color:green;">We are now at Shihe Huangqi station.</span>';
+    }
+
+    else if (direction === 'Pulandian' && position === 'next_station' && station === '普湾体育场') {
+        audioSrc = 'audio13/Pulandian/next/普湾体育场.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往普兰店振兴街站，前方到站普湾体育场。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Pulandian Zhenxing Street station.The next stop is Puwan Stadium.</span>';
+    } else if (direction === 'Pulandian' && position === 'arriving_station' && station === '普湾体育场') {
+        audioSrc = 'audio13/Pulandian/arriving/普湾体育场.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">普湾体育场车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Puwan Stadium station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Pulandian' && position === 'arrived_station' && station === '普湾体育场') {
+        audioSrc = 'audio13/Pulandian/arrived/普湾体育场.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">普湾体育场车站到了。</span><span style="color:green;">We are now at Puwan Stadium station.</span>';
+    }
+
+    else if (direction === 'Pulandian' && position === 'next_station' && station === '石河北海') {
+        audioSrc = 'audio13/Pulandian/next/石河北海.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往普兰店振兴街站，前方到站石河北海。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Pulandian Zhenxing Street station.The next stop is Shihe Beihai.</span>';
+    } else if (direction === 'Pulandian' && position === 'arriving_station' && station === '石河北海') {
+        audioSrc = 'audio13/Pulandian/arriving/石河北海.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">石河北海车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Shihe Beihai station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Pulandian' && position === 'arrived_station' && station === '石河北海') {
+        audioSrc = 'audio13/Pulandian/arrived/石河北海.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">石河北海车站到了。</span><span style="color:green;">We are now at Shihe Beihai station.</span>';
+    }
+
+    else if (direction === 'Pulandian' && position === 'next_station' && station === '长店堡') {
+        audioSrc = 'audio13/Pulandian/next/长店堡.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往普兰店振兴街站，前方到站长店堡。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Pulandian Zhenxing Street station.The next stop is Changdianpu.</span>';
+    } else if (direction === 'Pulandian' && position === 'arriving_station' && station === '长店堡') {
+        audioSrc = 'audio13/Pulandian/arriving/长店堡.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">长店堡车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Changdianpu station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Pulandian' && position === 'arrived_station' && station === '长店堡') {
+        audioSrc = 'audio13/Pulandian/arrived/长店堡.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">长店堡车站到了。</span><span style="color:green;">We are now at Changdianpu station.</span>';
+    }
+
+    else if (direction === 'Pulandian' && position === 'next_station' && station === '大医三院') {
+        audioSrc = 'audio13/Pulandian/next/大医三院.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往普兰店振兴街站，前方到站大医三院。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Pulandian Zhenxing Street station.The next stop is The Third Hospital of Dalian Medical University.</span>';
+    } else if (direction === 'Pulandian' && position === 'arriving_station' && station === '大医三院') {
+        audioSrc = 'audio13/Pulandian/arriving/大医三院.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">大医三院车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at The Third Hospital of Dalian Medical University station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Pulandian' && position === 'arrived_station' && station === '大医三院') {
+        audioSrc = 'audio13/Pulandian/arrived/大医三院.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">大医三院车站到了。</span><span style="color:green;">We are now at The Third Hospital of Dalian Medical University station.</span>';
+    }
+
+    else if (direction === 'Pulandian' && position === 'next_station' && station === '海湾高中') {
+        audioSrc = 'audio13/Pulandian/next/海湾高中.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往普兰店振兴街站，前方到站海湾高中。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Pulandian Zhenxing Street station.The next stop is Haiwan High School.</span>';
+    } else if (direction === 'Pulandian' && position === 'arriving_station' && station === '海湾高中') {
+        audioSrc = 'audio13/Pulandian/arriving/海湾高中.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">海湾高中车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Haiwan High School station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Pulandian' && position === 'arrived_station' && station === '海湾高中') {
+        audioSrc = 'audio13/Pulandian/arrived/海湾高中.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">海湾高中车站到了。</span><span style="color:green;">We are now at Haiwan High School station.</span>';
+    }
+   
+    else if (direction === 'Pulandian' && position === 'next_station' && station === '普兰店开发区') {
+        audioSrc = 'audio13/Pulandian/next/普兰店开发区.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往普兰店振兴街站，前方到站普兰店开发区。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Pulandian Zhenxing Street station.The next stop is Pulandian Development Zone.</span>';
+    } else if (direction === 'Pulandian' && position === 'arriving_station' && station === '普兰店开发区') {
+        audioSrc = 'audio13/Pulandian/arriving/普兰店开发区.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">普兰店开发区车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Pulandian Development Zone station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Pulandian' && position === 'arrived_station' && station === '普兰店开发区') {
+        audioSrc = 'audio13/Pulandian/arrived/普兰店开发区.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">普兰店开发区车站到了。</span><span style="color:green;">We are now at Pulandian Development Zone station.</span>';
+    }
+
+    else if (direction === 'Pulandian' && position === 'next_station' && station === '普兰店振兴街') {
+        audioSrc = 'audio13/Pulandian/next/普兰店振兴街.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往普兰店振兴街站，前方到站普兰店振兴街。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Pulandian Zhenxing Street station.The next stop is Pulandian Development Zone.</span>';
+    } else if (direction === 'Pulandian' && position === 'arriving_station' && station === '普兰店振兴街') {
+        audioSrc = 'audio13/Pulandian/arriving/普兰店振兴街.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">普兰店振兴街车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Pulandian Zhenxing Street station.Please prepare to leave the train.Get off by the left door.</span>';
+    } else if (direction === 'Pulandian' && position === 'arrived_station' && station === '普兰店振兴街') {
+        audioSrc = 'audio13/Pulandian/arrived/普兰店振兴街.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车的终点站普兰店振兴街车站到了，请乘客携带好随身物品抓紧时间下车，感谢您的一路合作，欢迎您再次乘坐大连地铁。</span><span style="color:green;">We are now at the terminal Pulandian Zhenxing Street station.Please remenber to take all your belongings when you leave the train quickly.Thank you for your cooperation and we look forward to seeing you again.</span>';
+    }
+
+    //以下部分为开发区方向的报站
+    else if (direction === 'Kaifaqu' && position === 'next_station' && station === '通世泰') {
+        audioSrc = 'audio13/Kaifaqu/next/通世泰.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往开发区站，前方到站通世泰。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Dalian Development Zone station.The next stop is Tostem.</span>';
+    
+    } else if (direction === 'Kaifaqu' && position === 'arriving_station' && station === '通世泰') {
+        audioSrc = 'audio13/Kaifaqu/arriving/通世泰.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">通世泰车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Tostem station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arrived_station' && station === '通世泰') {
+        audioSrc = 'audio13/Kaifaqu/arrived/通世泰.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">通世泰车站到了。</span><span style="color:green;">We are now at Tostem station.</span>';
+    }
+    else if (direction === 'Kaifaqu' && position === 'next_station' && station === '鸿玮澜山') {
+        audioSrc = 'audio13/Kaifaqu/next/鸿玮澜山.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往开发区站，前方到站鸿玮澜山。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Dalian Development Zone station.The next stop is Phoenix Peak.</span>';
+    
+    } else if (direction === 'Kaifaqu' && position === 'arriving_station' && station === '鸿玮澜山') {
+        audioSrc = 'audio13/Kaifaqu/arriving/鸿玮澜山.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">鸿玮澜山车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Phoenix Peak station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arrived_station' && station === '鸿玮澜山') {
+        audioSrc = 'audio13/Kaifaqu/arrived/鸿玮澜山.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">鸿玮澜山车站到了。</span><span style="color:green;">We are now at Phoenix Peak station.</span>';
+    }
+    else if (direction === 'Kaifaqu' && position === 'next_station' && station === '东山路') {
+        audioSrc = 'audio13/Kaifaqu/next/东山路.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往开发区站，前方到站东山路。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Dalian Development Zone station.The next stop is Dongshan Road.</span>';
+    
+    } else if (direction === 'Kaifaqu' && position === 'arriving_station' && station === '东山路') {
+        audioSrc = 'audio13/Kaifaqu/arriving/东山路.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">东山路车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Dongshan Road station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arrived_station' && station === '东山路') {
+        audioSrc = 'audio13/Kaifaqu/arrived/东山路.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">东山路车站到了。</span><span style="color:green;">We are now at Dongshan Road station.</span>';
+    }
+   
+    else if (direction === 'Kaifaqu' && position === 'next_station' && station === '和平路') {
+        audioSrc = 'audio13/Kaifaqu/next/和平路.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往开发区站，前方到站和平路。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Dalian Development Zone station.The next stop is Heping Road.</span>';
+    
+    } else if (direction === 'Kaifaqu' && position === 'arriving_station' && station === '和平路') {
+        audioSrc = 'audio13/Kaifaqu/arriving/和平路.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">和平路车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Heping Road station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arrived_station' && station === '和平路') {
+        audioSrc = 'audio13/Kaifaqu/arrived/和平路.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">和平路车站到了。</span><span style="color:green;">We are now at Heping Road station.</span>';
+        
+    }
+
+    else if (direction === 'Kaifaqu' && position === 'next_station' && station === '十九局') {
+        audioSrc = 'audio13/Kaifaqu/next/十九局.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往开发区站，前方到站十九局。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Dalian Development Zone station.The next stop is CR 19th Bureau.</span>';
+    
+    } else if (direction === 'Kaifaqu' && position === 'arriving_station' && station === '十九局') {
+        audioSrc = 'audio13/Kaifaqu/arriving/十九局.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">十九局车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at CR 19th Bureau station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arrived_station' && station === '十九局') {
+        audioSrc = 'audio13/Kaifaqu/arrived/十九局.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">十九局车站到了。</span><span style="color:green;">We are now at CR 19th Bureau station.</span>';
+        
+    }
+    else if (direction === 'Kaifaqu' && position === 'next_station' && station === '九里') {
+        audioSrc = 'audio13/Kaifaqu/next/九里.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往开发区站，前方到站九里。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Dalian Development Zone station.The next stop is Jiuli.</span>';
+    
+    } else if (direction === 'Kaifaqu' && position === 'arriving_station' && station === '九里') {
+        audioSrc = 'audio13/Kaifaqu/arriving/九里.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">九里车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Jiuli station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arrived_station' && station === '九里') {
+        audioSrc = 'audio13/Kaifaqu/arrived/九里.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">九里车站到了。</span><span style="color:green;">We are now at Jiuli station.</span>';
+        
+    }
+    else if (direction === 'Kaifaqu' && position === 'next_station' && station === '十三里') {
+        audioSrc = 'audio13/Kaifaqu/next/十三里.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往开发区站，前方到站十三里。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Dalian Development Zone station.The next stop is Shisanli.</span>';
+    
+    } else if (direction === 'Kaifaqu' && position === 'arriving_station' && station === '十三里') {
+        audioSrc = 'audio13/Kaifaqu/arriving/十三里.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">十三里车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Shisanli station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arrived_station' && station === '十三里') {
+        audioSrc = 'audio13/Kaifaqu/arrived/十三里.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">十三里车站到了。</span><span style="color:green;">We are now at Shisanli station.</span>';
+        
+    }
+
+    else if (direction === 'Kaifaqu' && position === 'next_station' && station === '二十里堡') {
+        audioSrc = 'audio13/Kaifaqu/next/二十里堡.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往开发区站，前方到站二十里堡。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Dalian Development Zone station.The next stop is Ershilipu.</span>';
+    
+    } else if (direction === 'Kaifaqu' && position === 'arriving_station' && station === '二十里堡') {
+        audioSrc = 'audio13/Kaifaqu/arriving/二十里堡.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">二十里堡车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Ershilipu station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arrived_station' && station === '二十里堡') {
+        audioSrc = 'audio13/Kaifaqu/arrived/二十里堡.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">二十里堡车站到了。</span><span style="color:green;">We are now at Ershilipu station.</span>';
+        
+    }
+    else if (direction === 'Kaifaqu' && position === 'next_station' && station === '三十里堡') {
+        audioSrc = 'audio13/Kaifaqu/next/三十里堡.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往开发区站，前方到站三十里堡。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Dalian Development Zone station.The next stop is Sanshilipu.</span>';
+    
+    } else if (direction === 'Kaifaqu' && position === 'arriving_station' && station === '三十里堡') {
+        audioSrc = 'audio13/Kaifaqu/arriving/三十里堡.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">三十里堡车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Sanshilipu station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arrived_station' && station === '三十里堡') {
+        audioSrc = 'audio13/Kaifaqu/arrived/三十里堡.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">三十里堡车站到了。</span><span style="color:green;">We are now at Sanshilipu station.</span>';
+        
+    }
+    else if (direction === 'Kaifaqu' && position === 'next_station' && station === '石河黄旗') {
+        audioSrc = 'audio13/Kaifaqu/next/石河黄旗.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往开发区站，前方到站石河黄旗。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Dalian Development Zone station.The next stop is Shihe Huangqi.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arriving_station' && station === '石河黄旗') {
+        audioSrc = 'audio13/Kaifaqu/arriving/石河黄旗.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">石河黄旗车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Shihe Huangqi station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arrived_station' && station === '石河黄旗') {
+        audioSrc = 'audio13/Kaifaqu/arrived/石河黄旗.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">石河黄旗车站到了。</span><span style="color:green;">We are now at Shihe Huangqi station.</span>';
+    }
+
+    else if (direction === 'Kaifaqu' && position === 'next_station' && station === '普湾体育场') {
+        audioSrc = 'audio13/Kaifaqu/next/普湾体育场.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往开发区站，前方到站普湾体育场。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Dalian Development Zone station.The next stop is Puwan Stadium.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arriving_station' && station === '普湾体育场') {
+        audioSrc = 'audio13/Kaifaqu/arriving/普湾体育场.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">普湾体育场车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Puwan Stadium station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arrived_station' && station === '普湾体育场') {
+        audioSrc = 'audio13/Kaifaqu/arrived/普湾体育场.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">普湾体育场车站到了。</span><span style="color:green;">We are now at Puwan Stadium station.</span>';
+    }
+
+    else if (direction === 'Kaifaqu' && position === 'next_station' && station === '石河北海') {
+        audioSrc = 'audio13/Kaifaqu/next/石河北海.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往开发区站，前方到站石河北海。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Dalian Development Zone station.The next stop is Shihe Beihai.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arriving_station' && station === '石河北海') {
+        audioSrc = 'audio13/Kaifaqu/arriving/石河北海.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">石河北海车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Shihe Beihai station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arrived_station' && station === '石河北海') {
+        audioSrc = 'audio13/Kaifaqu/arrived/石河北海.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">石河北海车站到了。</span><span style="color:green;">We are now at Shihe Beihai station.</span>';
+    }
+
+    else if (direction === 'Kaifaqu' && position === 'next_station' && station === '长店堡') {
+        audioSrc = 'audio13/Kaifaqu/next/长店堡.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往开发区站，前方到站长店堡。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Dalian Development Zone station.The next stop is Changdianpu.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arriving_station' && station === '长店堡') {
+        audioSrc = 'audio13/Kaifaqu/arriving/长店堡.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">长店堡车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Changdianpu station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arrived_station' && station === '长店堡') {
+        audioSrc = 'audio13/Kaifaqu/arrived/长店堡.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">长店堡车站到了。</span><span style="color:green;">We are now at Changdianpu station.</span>';
+    }
+
+    else if (direction === 'Kaifaqu' && position === 'next_station' && station === '大医三院') {
+        audioSrc = 'audio13/Kaifaqu/next/大医三院.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往开发区站，前方到站大医三院。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Dalian Development Zone station.The next stop is The Third Hospital of Dalian Medical University.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arriving_station' && station === '大医三院') {
+        audioSrc = 'audio13/Kaifaqu/arriving/大医三院.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">大医三院车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at The Third Hospital of Dalian Medical University station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arrived_station' && station === '大医三院') {
+        audioSrc = 'audio13/Kaifaqu/arrived/大医三院.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">大医三院车站到了。</span><span style="color:green;">We are now at The Third Hospital of Dalian Medical University station.</span>';
+    }
+
+    else if (direction === 'Kaifaqu' && position === 'next_station' && station === '海湾高中') {
+        audioSrc = 'audio13/Kaifaqu/next/海湾高中.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往开发区站，前方到站海湾高中。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Dalian Development Zone station.The next stop is Haiwan High School.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arriving_station' && station === '海湾高中') {
+        audioSrc = 'audio13/Kaifaqu/arriving/海湾高中.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">海湾高中车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Haiwan High School station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arrived_station' && station === '海湾高中') {
+        audioSrc = 'audio13/Kaifaqu/arrived/海湾高中.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">海湾高中车站到了。</span><span style="color:green;">We are now at Haiwan High School station.</span>';
+    }
+   
+    else if (direction === 'Kaifaqu' && position === 'next_station' && station === '普兰店开发区') {
+        audioSrc = 'audio13/Kaifaqu/next/普兰店开发区.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往开发区站，前方到站普兰店开发区。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Dalian Development Zone station.The next stop is Pulandian Development Zone.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arriving_station' && station === '普兰店开发区') {
+        audioSrc = 'audio13/Kaifaqu/arriving/普兰店开发区.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">普兰店开发区车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Pulandian Development Zone station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arrived_station' && station === '普兰店开发区') {
+        audioSrc = 'audio13/Kaifaqu/arrived/普兰店开发区.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">普兰店开发区车站到了。</span><span style="color:green;">We are now at Pulandian Development Zone station.</span>';
+    }
+
+    else if (direction === 'Kaifaqu' && position === 'next_station' && station === '开发区') {
+        audioSrc = 'audio13/Kaifaqu/next/开发区.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车开往开发区站，前方到站开发区。开发区是换乘车站，需要乘坐地铁3号线列车的乘客，请在本站下车。地铁服务监督电话：968600 </span><span style="color:green;">This train is bound for Dalian Development Zone station.The next stop is Dalian Development Zone.Development Zone station is a transfer station.Passengers for Line 3,please get off at this station.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arriving_station' && station === '开发区') {
+        audioSrc = 'audio13/Kaifaqu/arriving/开发区.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">开发区车站就要到了，请下车乘客提前做好准备，从右侧车门下车。</span><span style="color:green;">We are now arrving at Dalian Development Zone station.Please prepare to leave the train.Get off by the right door.</span>';
+    } else if (direction === 'Kaifaqu' && position === 'arrived_station' && station === '开发区') {
+        audioSrc = 'audio13/Kaifaqu/arrived/开发区.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本次列车的终点站开发区车站到了，请乘客携带好随身物品抓紧时间下车，感谢您的一路合作，欢迎您再次乘坐大连地铁。</span><span style="color:green;">We are now at the terminal Dalian Development Zone station.Please remenber to take all your belongings when you leave the train quickly.Thank you for your cooperation and we look forward to seeing you again.</span>';
+    }
+    // 设置音频源并播放  
+    if (audioSrc) {  
+        audioPlayer.src = audioSrc;  
+        audioPlayer.play();  
+    }  
+});  
+  
+stopBtn.addEventListener('click', function() {  
+    audioPlayer.pause();  
+    audioPlayer.currentTime = 0; // 重置到音频开始位置  
+});  
+</script>  
+  
+</body>  
+</html>
