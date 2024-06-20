@@ -19,6 +19,15 @@
 当前提供1号线，3号线，12号线以及13号线，其他线路敬请期待！
 安卓用户可在右侧下载安卓启动器
 
+版本日志
+
+2024/6/15深夜 项目启动
+2024/6/16 大连地铁12号线全线发布
+2024/6/17 大连地铁3号线全线发布，1号线姚家方向发布，并上传至Github
+2024/6/18 大连地铁1号线全线发布
+2024/6/19 大连地铁13号线全线发布
+更多线路，敬请期待…
+
 贡献与反馈
 
 我们欢迎任何形式的贡献，包括但不限于代码优化、报站音频更新、界面改进等。如果您在使用过程中遇到任何问题或有任何建议，请随时通过GitHub的Issue系统向我们反馈。
@@ -63,6 +72,14 @@ Click the play button to listen to the audio of the newspaper station online.
 If you want to download the newspaper audio, click the download button.
 Currently, Line 1, Line 3, Line 12 and Line 13 are available, so stay tuned!
 Android users can download the Android launcher .
+
+Version log
+2024/6/15Late night   Project launch 
+2024/6/16 Dalian Metro Line 12 was released on all lines
+2024/6/17 Dalian Metro Line 3 was released on all lines, and Line 1 was released in Yaojia direction, and uploaded to Github
+2024/6/18 Dalian Metro Line 1 was released on all lines
+2024/6/19 Dalian Metro Line 13 was released on all lines
+More metro lines, please stay tuned
 
 Contributions & Feedback
 
