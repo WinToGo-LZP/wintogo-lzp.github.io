@@ -22,10 +22,15 @@
 版本日志
 
 2024/6/15深夜 项目启动
+
 2024/6/16 大连地铁12号线全线发布
+
 2024/6/17 大连地铁3号线全线发布，1号线姚家方向发布，并上传至Github
+
 2024/6/18 大连地铁1号线全线发布
+
 2024/6/19 大连地铁13号线全线发布
+
 更多线路，敬请期待…
 
 贡献与反馈
@@ -75,10 +80,15 @@ Android users can download the Android launcher .
 
 Version log
 2024/6/15Late night   Project launch 
+
 2024/6/16 Dalian Metro Line 12 was released on all lines
+
 2024/6/17 Dalian Metro Line 3 was released on all lines, and Line 1 was released in Yaojia direction, and uploaded to Github
+
 2024/6/18 Dalian Metro Line 1 was released on all lines
+
 2024/6/19 Dalian Metro Line 13 was released on all lines
+
 More metro lines, please stay tuned
 
 Contributions & Feedback
