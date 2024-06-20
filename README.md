@@ -31,6 +31,8 @@
 
 2024/6/19 大连地铁13号线全线发布
 
+2024/6/20 引入每日诗句API
+
 更多线路，敬请期待…
 
 贡献与反馈
@@ -88,6 +90,8 @@ Version log
 2024/6/18 Dalian Metro Line 1 was released on all lines
 
 2024/6/19 Dalian Metro Line 13 was released on all lines
+
+2024/6/20 Introducing the Verse of the Day API
 
 More metro lines, please stay tuned
 
