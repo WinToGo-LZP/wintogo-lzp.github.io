@@ -42,6 +42,8 @@
             font-size:50px;
         }
         .line1 { background-color:  #07c700;color: white; } /* 1号线*/
+        .line2 { background-color:  #2584ff;color: white; } /* 1号线*/
+        .line5 { background-color:  #ff0000;color: white; } /* 1号线*/
         .line12 { background-color: #8c00ff; color: white; } /* 12号线 */
         .line3 { background-color: #ff0077; color: white; } /* 3号线 */
         .line13 { background-color: #e1e100; color: blue; } /* 13号线 */
@@ -56,7 +58,19 @@
 </head>
 <body>
     <h1>大连地铁报站模拟器Web版</h1>
-    <h2>▲向上滑动▲</h2>
+    <h2>每日诗句推荐</h2>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    <div id="poem_sentence"></div>
+    <div id="poem_info"></div>
+    <script type="text/javascript">
+      jinrishici.load(function(result) {
+        var sentence = document.querySelector("#poem_sentence")
+        var info = document.querySelector("#poem_info")
+        sentence.innerHTML = result.data.content
+        info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '《' + result.data.origin.title + '》'
+      });
+    </script>
+    <h2>↓请选择线路↓</h2>
     <div class="metro-buttons">
         <a href="line1.html">
             <div class="metro-button line1">
@@ -64,6 +78,14 @@
                 
             </div>
         </a>
+        <div class="metro-buttons">
+            <a href="404.html">
+                <div class="metro-button line2">
+                    <span class="sub-title">2号线</span>
+                    
+                </div>
+            </a>
+
     <div class="metro-buttons">
         <a href="line3.html">
             <div class="metro-button line3">
@@ -71,6 +93,13 @@
                 
             </div>
         </a>
+        <div class="metro-buttons">
+            <a href="404.html">
+                <div class="metro-button line5">
+                    <span class="sub-title">5号线</span>
+                    
+                </div>
+            </a>
     <div class="metro-buttons">
         <a href="line12.html">
             <div class="metro-button line12">
@@ -86,6 +115,7 @@
                 </div>
             </a>
         <!-- 添加更多线路按钮时复制以上div并更改class为对应的线路颜色 -->
+
     </div>
 </body>
 </html>
