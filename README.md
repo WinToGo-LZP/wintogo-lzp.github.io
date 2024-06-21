@@ -33,6 +33,8 @@
 
 2024/6/20 引入每日诗句API
 
+2024/6/21 引入方正字体12.ttf，使LED滚动屏效果更逼真
+
 更多线路，敬请期待…
 
 贡献与反馈
@@ -92,6 +94,8 @@ Version log
 2024/6/19 Dalian Metro Line 13 was released on all lines
 
 2024/6/20 Introducing the Verse of the Day API
+
+2024/6/21 The introduction of the square font 12.ttf makes the LED scrolling screen effect more realistic
 
 More metro lines, please stay tuned
 
