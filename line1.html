@@ -10,7 +10,16 @@
 
 <!--LED标题-->
     <style>
-        marquee.zimu {font-family: "Tahoma", "Arial", "思源黑体 CN Regular", "方正悠黑简体", "Microsoft YaHei", "微软雅黑", "黑体", "宋体"; background: #000000;}
+     /*marquee.zimu {font-family: "Tahoma", "Arial", "思源黑体 CN Regular", "方正悠黑简体", "Microsoft YaHei", "微软雅黑", "黑体", "宋体"; background: #000000;}*/
+     @font-face {
+  font-family: 'Fangzheng12';
+  src: url('fonts/Fangzheng12.ttf') format('truetype');
+}
+
+marquee.zimu {
+  font-family: 'Fangzheng12', "Arial", "Tahoma", "Microsoft YaHei", "微软雅黑", "黑体", "宋体";
+  background: #000000;
+}
         </style>
         <font size="7" color="#FF0000">
         <marquee scrollamount="25" scrolldelay="20" class="zimu"white-space: pre-line><span style="color:red;">欢迎使用大连地铁报站模拟器Web版！</span><span style="color:green;">Welcome use Dalian Metro Station Simulator Web!</span></marquee>
