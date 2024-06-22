@@ -31,7 +31,7 @@
 
 2024/6/21 引入方正字体12.ttf，使LED滚动屏效果更逼真
 
-2024/6/22 上线繁體中文和英文版页面，方便国际友人使用
+2024/6/22 上线繁體中文,英文版和日本语页面，方便国际友人使用
 
 更多线路，敬请期待…
 
@@ -83,7 +83,7 @@ Update log 2024/6/15Late night Project launch
 
 2024/6/21 The introduction of the square font 12.ttf makes the LED scrolling screen effect more realistic
 
-2024/6/22 The Chinese Traditional and English version of the page will be launched for the convenience of international friends
+2024/6/22 The Chinese Traditional , English,Japanese version of the page will be launched for the convenience of international friends
 
 More metro lines, please stay tuned
 
