@@ -1,0 +1,449 @@
+<!DOCTYPE html>  
+<html lang="cn">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="metro" content="A software to Simulator Dalian Metro Station">  
+<title>Dalian Metro Station Simulator Web</title>  
+</head>  
+<body>  
+    <link rel="stylesheet" type="css" href="style.css">
+
+<!--LED标题-->
+    <style>
+     /*marquee.zimu {font-family: "Tahoma", "Arial", "思源黑体 CN Regular", "方正悠黑简体", "Microsoft YaHei", "微软雅黑", "黑体", "宋体"; background: #000000;}*/
+     @font-face {
+  font-family: 'Fangzheng12';
+  src: url('fonts/Fangzheng12.ttf') format('truetype');
+}
+
+marquee.zimu {
+  font-family: 'Fangzheng12', "Arial", "Tahoma", "Microsoft YaHei", "微软雅黑", "黑体", "宋体";
+  background: #000000;
+}
+        </style>
+        <font size="7" color="#FF0000">
+        <marquee scrollamount="25" scrolldelay="20" class="zimu">欢迎使用大连地铁报站模拟器Web版！Welcome use Dalian Metro Station Simulator Web!</marquee>
+        </font>
+        
+        <button onclick="goBack()">Back to home</button>
+<h1 style="color: white;">Dalian Metro Line 3🚇</h1>  
+<h3 style="color: blue;">Golden Pebble Beach==Xiaoyaowan==DD Port==Free Trade Zone==Dalian Development Zone(Transfer to Line 3 Branch and Line 13)==Jinma Road→Metro Haiwan Train Depot→Dalianwan==Houyan(Transfer to Line 5)==Quanshui==Jinjia Street==Xianglujiao==Dalian Railway Station(Transfer to Line 5)</h3>
+<style>
+    body {
+        /*加载背景图：图片地址 不平铺 */
+        background: url(image/Line3.jpg) no-repeat;
+        /* 让背景图基于容器大小伸缩 */
+        background-size: 100% 100%;
+        background-attachment: fixed;
+        
+
+    }
+
+
+</style>
+
+
+
+
+<body background="image/Line3.jpg"></body>
+  
+<label style="color: white;for="direction">Terminal</label>  
+<select id="direction">  
+    <option value="Jinshitan">Golden Pebble Beach</option>  
+    <option value="Dalianzhan">Dalian Railway Station</option>  
+</select>  
+  
+<label style="color: white;for="position">Where</label>  
+<select id="position">  
+    <option value="next_station">Next stop</option>  
+    <option value="arriving_station">Arrving stop</option>  
+    <option value="arrived_station">Arrived stop</option>  
+</select>  
+  
+<label style="color: white;for="station">Station</label>  
+<select id="station">  
+    <option value="大连站">Dalian Railway Station</option>  
+    <option value="香炉礁">Xianglujiao</option>
+    <option value="金家街">Jinjia Street</option>    
+    <option value="泉水">Quanshui</option>
+    <option value="后盐">Houyan</option>
+    <option value="大连湾">Dalianwan</option>
+    <option value="地铁海湾基地">Metro Haiwan Train Depot</option>
+    <option value="金马路">Jinma Road</option>  
+    <option value="开发区">Dalian Development Zone</option>  
+    <option value="保税区">Free Trade Zone</option>
+    <option value="双D港">DD Port</option>    
+    <option value="小窑湾">Xiaoyaowan</option>
+    <option value="金石滩">Golden Pebble Beach</option>
+
+    <!-- 可以继续添加其他站名 -->  
+</select>  
+  
+<button id="playBtn">Play▶︎</button>  
+<button id="stopBtn">Stop⏹</button>  
+<a <a style="color: white;" href ="https://cloud.189.cn/t/MruyiureYzYb （访问码：paa0）" download="">Get and download station radio</a>
+  
+<audio id="audioPlayer" preload="auto" style="display:none;">  
+    <!-- 音频文件源会根据JavaScript动态设置 -->  
+</audio>  
+<h1 style="color: white;">Made By Bilibili </h1>
+<h1><a style="color: orange;" href ="https://space.bilibili.com/1283468503">@WinToGo-LZP</h1> 
+<h1><a style="color: orange;" href="https://space.bilibili.com/498607616">@Metro-老張114514</h1>
+    <h1><a style="color: red;" href="https://github.com/WinToGo-LZP/WinToGo-LZP.github.io/blob/main/LICENSE">Apache-2.0 license</h1>
+<!--<h3 style="color: orangered;">正在播放>>></h3> <h2 style="color: orange;">等待操作...</h2>-->
+
+
+
+  
+<script>  
+        function goBack() {
+    window.history.back();
+}
+
+    
+
+const audioPlayer = document.getElementById('audioPlayer');  
+const playBtn = document.getElementById('playBtn');  
+const stopBtn = document.getElementById('stopBtn');  
+  
+playBtn.addEventListener('click', function() {  
+    const direction = document.getElementById('direction').value;  
+    const position = document.getElementById('position').value;  
+    const station = document.getElementById('station').value;  
+  
+    let audioSrc = '';  
+//以下部分为错误报站
+    var titleElement = document.querySelector('h2');
+    var titleElement = document.querySelector('marquee');
+ 
+    if (direction === 'Dalianzhan' && position === 'next_station' && station === '金石滩') {
+        audioSrc = '../error.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">⚠播放出错，请不要选择起点站，请重新选择！</span>';
+    
+    } else if (direction === 'Dalianzhan' && position === 'arriving_station' && station === '金石滩') {
+        audioSrc = '../error.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">⚠播放出错，请不要选择起点站，请重新选择！</span>';
+    } else if (direction === 'Dalianzhan' && position === 'arrived_station' && station === '金石滩') {
+        audioSrc = '../error.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">⚠播放出错，请不要选择起点站，请重新选择！</span>';
+    }
+      else if (direction === 'Jinshitan' && position === 'next_station' && station === '大连站') {
+        audioSrc = '../error.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">⚠播放出错，请不要选择起点站，请重新选择！</span>';
+    
+    } else if (direction === 'Jinshitan' && position === 'arriving_station' && station === '大连站') {
+        audioSrc = '../error.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">⚠播放出错，请不要选择起点站，请重新选择！</span>';
+    } else if (direction === 'Jinshitan' && position === 'arrived_station' && station === '大连站') {
+        audioSrc = '../error.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">⚠播放出错，请不要选择起点站，请重新选择！</span>';
+    }
+        
+    
+
+//以上部分为错误报站
+//以下部分为金石滩方向的报站
+    else if (direction === 'Jinshitan' && position === 'next_station' && station === '香炉礁') {
+        audioSrc = '../audio3/next/香炉礁.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方到站是香炉礁，终点站是金石滩。服务监督电话：968600 </span><span style="color:green;">The next stop is Xianglujiao Station,the terminal of the train is Golden Pebble Beach Station.</span>';
+    
+    } else if (direction === 'Jinshitan' && position === 'arriving_station' && station === '香炉礁') {
+        audioSrc = '../audio3/arrving/香炉礁.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方进站：香炉礁</span><span style="color:green;">The next stop is Xianglujiao Station.</span>';
+    } else if (direction === 'Jinshitan' && position === 'arrived_station' && station === '香炉礁') {
+        audioSrc = '../audio3/arrived/香炉礁.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本站：香炉礁</span><span style="color:green;">This is Xianglujiao Station.</span>';
+    }
+
+    else if (direction === 'Jinshitan' && position === 'next_station' && station === '金家街') {
+        audioSrc = '../audio3/next/金家街.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方到站是金家街，终点站是金石滩。服务监督电话：968600 </span><span style="color:green;">The next stop is Jinjia Street Station,the terminal of the train is Golden Pebble Beach Station.</span>';
+    
+    } else if (direction === 'Jinshitan' && position === 'arriving_station' && station === '金家街') {
+        audioSrc = '../audio3/arrving/金家街.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">。前方进站：金家街</span><span style="color:green;">.The next stop is Jinjia Street Station.</span>';
+    } else if (direction === 'Jinshitan' && position === 'arrived_station' && station === '金家街') {
+        audioSrc = '../audio3/arrived/金家街.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本站：金家街</span><span style="color:green;">This is Jinjia Street Station.</span>';
+    }
+      
+    else if (direction === 'Jinshitan' && position === 'next_station' && station === '泉水') {
+        audioSrc = '../audio3/next/泉水1.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">列车即将进入隧道。前方到站是泉水，终点站是金石滩。服务监督电话：968600 </span><span style="color:green;">The train is about to enter the tunnel.The next stop is Quanshui Station,the terminal of the train is Golden Pebble Beach Station.</span>';
+    
+    } else if (direction === 'Jinshitan' && position === 'arriving_station' && station === '泉水') {
+        audioSrc = '../audio3/arrving/泉水.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方进站：泉水</span><span style="color:green;">The next stop is Quanshui Station.</span>';
+    } else if (direction === 'Jinshitan' && position === 'arrived_station' && station === '泉水') {
+        audioSrc = '../audio3/arrived/泉水.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本站：泉水</span><span style="color:green;">This is Quanshui Station.</span>';
+    }
+    
+    else if (direction === 'Jinshitan' && position === 'next_station' && station === '后盐') {
+        audioSrc = '../audio3/next/后盐.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方到站是后盐，终点站是金石滩。服务监督电话：968600 </span><span style="color:green;">The next stop is Houyan Station,the terminal of the train is Golden Pebble Beach Station.</span>';
+    
+    } else if (direction === 'Jinshitan' && position === 'arriving_station' && station === '后盐') {
+        audioSrc = '../audio3/arrving/后盐.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方进站：后盐</span><span style="color:green;">The next stop is Houyan Station.</span>';
+    } else if (direction === 'Jinshitan' && position === 'arrived_station' && station === '后盐') {
+        audioSrc = '../audio3/arrived/后盐.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本站：后盐</span><span style="color:green;">This is Houyan Station.</span>';
+    }
+    
+    else if (direction === 'Jinshitan' && position === 'next_station' && station === '大连湾') {
+        audioSrc = '../audio3/next/大连湾.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方到站是大连湾，终点站是金石滩。服务监督电话：968600 </span><span style="color:green;">The next stop is Dalianwan Station,the terminal of the train is Golden Pebble Beach Station.</span>';
+    
+    } else if (direction === 'Jinshitan' && position === 'arriving_station' && station === '大连湾') {
+        audioSrc = '../audio3/arrving/大连湾.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方进站：大连湾</span><span style="color:green;">The next stop is Dalianwan Station.</span>';
+    } else if (direction === 'Jinshitan' && position === 'arrived_station' && station === '大连湾') {
+        audioSrc = '../audio3/arrived/大连湾.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本站：大连湾</span><span style="color:green;">This is Dalianwan Station.</span>';
+    }
+    
+    else if (direction === 'Jinshitan' && position === 'next_station' && station === '地铁海湾基地') {
+        audioSrc = '../audio3/地铁海湾基地错误提示.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">ℹ提示：地铁海湾基地为单向站台，仅在大连站方向停靠，金石滩方向不停靠 </span><span style="color:green;">Tips: The Metro Haiwan Train Depot is a one-way platform, which only stops in the direction of Dalian Railway Station, and does not stop in the direction of Golden Pebble Beach Station</span>';
+    
+    } else if (direction === 'Jinshitan' && position === 'arriving_station' && station === '地铁海湾基地') {
+        audioSrc = '../audio3/地铁海湾基地错误提示.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">ℹ提示：地铁海湾基地为单向站台，仅在大连站方向停靠，金石滩方向不停靠 </span><span style="color:green;">Tips: The Metro Haiwan Train Depot is a one-way platform, which only stops in the direction of Dalian Railway Station, and does not stop in the direction of Golden Pebble Beach Station</span>';
+    } else if (direction === 'Jinshitan' && position === 'arrived_station' && station === '地铁海湾基地') {
+        audioSrc = '../audio3/地铁海湾基地错误提示.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">ℹ提示：地铁海湾基地为单向站台，仅在大连站方向停靠，金石滩方向不停靠 </span><span style="color:green;">Tips: The Metro Haiwan Train Depot is a one-way platform, which only stops in the direction of Dalian Railway Station, and does not stop in the direction of Golden Pebble Beach Station</span>';
+    }
+   
+    else if (direction === 'Jinshitan' && position === 'next_station' && station === '金马路') {
+        audioSrc = '../audio3/next/金马路.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方到站是金马路，终点站是金石滩。服务监督电话：968600 </span><span style="color:green;">The next stop is Jinma Road Station,the terminal of the train is Golden Pebble Beach Station.</span>';
+    
+    } else if (direction === 'Jinshitan' && position === 'arriving_station' && station === '金马路') {
+        audioSrc = '../audio3/arrving/金马路.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方进站：金马路</span><span style="color:green;">The next stop is Jinma Road Station.</span>';
+    } else if (direction === 'Jinshitan' && position === 'arrived_station' && station === '金马路') {
+        audioSrc = '../audio3/arrived/金马路.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本站：金马路</span><span style="color:green;">This is Jinma Road Station.</span>';
+    }
+    
+    else if (direction === 'Jinshitan' && position === 'next_station' && station === '开发区') {
+        audioSrc = '../audio3/next/开发区.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方到站是开发区，终点站是金石滩。服务监督电话：968600 </span><span style="color:green;">The next stop is Dalian Development Zone Station,the terminal of the train is Golden Pebble Beach Station.</span>';
+    
+    } else if (direction === 'Jinshitan' && position === 'arriving_station' && station === '开发区') {
+        audioSrc = '../audio3/arrving/开发区.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方进站：开发区</span><span style="color:green;">The next stop is Dalian Development Zone Station.</span>';
+    } else if (direction === 'Jinshitan' && position === 'arrived_station' && station === '开发区') {
+        audioSrc = '../audio3/arrived/开发区.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本站：开发区</span><span style="color:green;">This is Dalian Development Zone Station.</span>';
+    }
+
+    else if (direction === 'Jinshitan' && position === 'next_station' && station === '保税区') {
+        audioSrc = '../audio3/next/保税区.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方到站是保税区，终点站是金石滩。服务监督电话：968600 </span><span style="color:green;">The next stop is Free Trade Zone Station,the terminal of the train is Golden Pebble Beach Station.</span>';
+    
+    } else if (direction === 'Jinshitan' && position === 'arriving_station' && station === '保税区') {
+        audioSrc = '../audio3/arrving/保税区.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方进站：保税区</span><span style="color:green;">The next stop is Free Trade Zone Station.</span>';
+    } else if (direction === 'Jinshitan' && position === 'arrived_station' && station === '保税区') {
+        audioSrc = '../audio3/arrived/保税区.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本站：保税区</span><span style="color:green;">This is Free Trade Zone Station.</span>';
+    }
+
+    else if (direction === 'Jinshitan' && position === 'next_station' && station === '双D港') {
+        audioSrc = '../audio3/next/双D港.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方到站是双D港，终点站是金石滩。服务监督电话：968600 </span><span style="color:green;">The next stop is DD Port Station,the terminal of the train is Golden Pebble Beach Station.</span>';
+    
+    } else if (direction === 'Jinshitan' && position === 'arriving_station' && station === '双D港') {
+        audioSrc = '../audio3/arrving/双D港.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方进站：双D港</span><span style="color:green;">The next stop is DD Port Station.</span>';
+    } else if (direction === 'Jinshitan' && position === 'arrived_station' && station === '双D港') {
+        audioSrc = '../audio3/arrived/双D港.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本站：双D港</span><span style="color:green;">This is DD Port Station.</span>';
+    }
+
+    else if (direction === 'Jinshitan' && position === 'next_station' && station === '小窑湾') {
+        audioSrc = '../audio3/next/小窑湾.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方到站是小窑湾，终点站是金石滩。服务监督电话：968600 </span><span style="color:green;">The next stop is Xiaoyaowan Station,the terminal of the train is Golden Pebble Beach Station.</span>';
+    
+    } else if (direction === 'Jinshitan' && position === 'arriving_station' && station === '小窑湾') {
+        audioSrc = '../audio3/arrving/小窑湾.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方进站：小窑湾</span><span style="color:green;">The next stop is Xiaoyaowan Station.</span>';
+    } else if (direction === 'Jinshitan' && position === 'arrived_station' && station === '小窑湾') {
+        audioSrc = '../audio3/arrived/小窑湾.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本站：小窑湾</span><span style="color:green;">This is Xiaoyaowan Station.</span>';
+    }
+
+    else if (direction === 'Jinshitan' && position === 'next_station' && station === '金石滩') {
+        audioSrc = '../audio3/next/金石滩.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方到站是金石滩，终点站是金石滩。服务监督电话：968600 </span><span style="color:green;">The next stop is Golden Pebble Beach Station,the terminal of the train is Golden Pebble Beach Station.</span>';
+    
+    } else if (direction === 'Jinshitan' && position === 'arriving_station' && station === '金石滩') {
+        audioSrc = '../audio3/arrving/金石滩.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方进站：金石滩</span><span style="color:green;">The next stop is Golden Pebble Beach Station.</span>';
+    } else if (direction === 'Jinshitan' && position === 'arrived_station' && station === '金石滩') {
+        audioSrc = '../audio3/arrived/金石滩.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本站：金石滩</span><span style="color:green;">This is Golden Pebble Beach Station.</span>';
+    }
+
+    //以下部分为大连站方向的报站
+    else if (direction === 'Dalianzhan' && position === 'next_station' && station === '香炉礁') {
+        audioSrc = '../audio3/next/香炉礁.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方到站是香炉礁，终点站是大连站。服务监督电话：968600 </span><span style="color:green;">The next stop is Xianglujiao Station,the terminal of the train is Dalian Railway Station.</span>';
+    
+    } else if (direction === 'Dalianzhan' && position === 'arriving_station' && station === '香炉礁') {
+        audioSrc = '../audio3/arrving/香炉礁.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方进站：香炉礁</span><span style="color:green;">The next stop is Xianglujiao Station.</span>';
+    } else if (direction === 'Dalianzhan' && position === 'arrived_station' && station === '香炉礁') {
+        audioSrc = '../audio3/arrived/香炉礁.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本站：香炉礁</span><span style="color:green;">This is Xianglujiao Station.</span>';
+    }
+
+    else if (direction === 'Dalianzhan' && position === 'next_station' && station === '金家街') {
+        audioSrc = '../audio3/next/金家街.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方到站是金家街，终点站是大连站。服务监督电话：968600 </span><span style="color:green;">The next stop is Jinjia Street Station,the terminal of the train is Dalian Railway Station.</span>';
+    
+    } else if (direction === 'Dalianzhan' && position === 'arriving_station' && station === '金家街') {
+        audioSrc = '../audio3/arrving/金家街1.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">列车即将进入隧道。前方进站：金家街</span><span style="color:green;">The train is about to enter the tunnel.The next stop is Jinjia Street Station.</span>';
+    } else if (direction === 'Dalianzhan' && position === 'arrived_station' && station === '金家街') {
+        audioSrc = '../audio3/arrived/金家街.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本站：金家街</span><span style="color:green;">This is Jinjia Street Station.</span>';
+    }
+      
+    else if (direction === 'Dalianzhan' && position === 'next_station' && station === '泉水') {
+        audioSrc = '../audio3/next/泉水.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方到站是泉水，终点站是大连站。服务监督电话：968600 </span><span style="color:green;">The next stop is Quanshui Station,the terminal of the train is Dalian Railway Station.</span>';
+    
+    } else if (direction === 'Dalianzhan' && position === 'arriving_station' && station === '泉水') {
+        audioSrc = '../audio3/arrving/泉水.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方进站：泉水</span><span style="color:green;">The next stop is Quanshui Station.</span>';
+    } else if (direction === 'Dalianzhan' && position === 'arrived_station' && station === '泉水') {
+        audioSrc = '../audio3/arrived/泉水.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本站：泉水</span><span style="color:green;">This is Quanshui Station.</span>';
+    }
+    
+    else if (direction === 'Dalianzhan' && position === 'next_station' && station === '后盐') {
+        audioSrc = '../audio3/next/后盐.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方到站是后盐，终点站是大连站。服务监督电话：968600 </span><span style="color:green;">The next stop is Houyan Station,the terminal of the train is Dalian Railway Station.</span>';
+    
+    } else if (direction === 'Dalianzhan' && position === 'arriving_station' && station === '后盐') {
+        audioSrc = '../audio3/arrving/后盐.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方进站：后盐</span><span style="color:green;">The next stop is Houyan Station.</span>';
+    } else if (direction === 'Dalianzhan' && position === 'arrived_station' && station === '后盐') {
+        audioSrc = '../audio3/arrived/后盐.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本站：后盐</span><span style="color:green;">This is Houyan Station.</span>';
+    }
+    
+    else if (direction === 'Dalianzhan' && position === 'next_station' && station === '大连湾') {
+        audioSrc = '../audio3/next/大连湾.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方到站是大连湾，终点站是大连站。服务监督电话：968600 </span><span style="color:green;">The next stop is Dalianwan Station,the terminal of the train is Dalian Railway Station.</span>';
+    
+    } else if (direction === 'Dalianzhan' && position === 'arriving_station' && station === '大连湾') {
+        audioSrc = '../audio3/arrving/大连湾.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方进站：大连湾</span><span style="color:green;">The next stop is Dalianwan Station.</span>';
+    } else if (direction === 'Dalianzhan' && position === 'arrived_station' && station === '大连湾') {
+        audioSrc = '../audio3/arrived/大连湾.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本站：大连湾</span><span style="color:green;">This is Dalianwan Station.</span>';
+    }
+    
+    else if (direction === 'Dalianzhan' && position === 'next_station' && station === '地铁海湾基地') {
+        audioSrc = '../audio3/next/地铁海湾基地.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方到站是地铁海湾基地，终点站是大连站。服务监督电话：968600 </span><span style="color:green;">The next stop is Metro Haiwan Train Depot,the terminal of the train is Dalian Railway Station.</span>';
+    
+    } else if (direction === 'Dalianzhan' && position === 'arriving_station' && station === '地铁海湾基地') {
+        audioSrc = '../audio3/arrving/地铁海湾基地.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方进站：地铁海湾基地 </span><span style="color:green;">The next stop is Metro Haiwan Train Depot</span>';
+    } else if (direction === 'Dalianzhan' && position === 'arrived_station' && station === '地铁海湾基地') {
+        audioSrc = '../audio3/arrived/地铁海湾基地.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本站：地铁海湾基地 </span><span style="color:green;">This is Metro Haiwan Train Depot</span>';
+    }
+   
+    else if (direction === 'Dalianzhan' && position === 'next_station' && station === '金马路') {
+        audioSrc = '../audio3/next/金马路.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方到站是金马路，终点站是大连站。服务监督电话：968600 </span><span style="color:green;">The next stop is Jinma Road Station,the terminal of the train is Dalian Railway Station.</span>';
+    
+    } else if (direction === 'Dalianzhan' && position === 'arriving_station' && station === '金马路') {
+        audioSrc = '../audio3/arrving/金马路.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方进站：金马路</span><span style="color:green;">The next stop is Jinma Road Station.</span>';
+    } else if (direction === 'Dalianzhan' && position === 'arrived_station' && station === '金马路') {
+        audioSrc = '../audio3/arrived/金马路.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本站：金马路</span><span style="color:green;">This is Jinma Road Station.</span>';
+    }
+    
+    else if (direction === 'Dalianzhan' && position === 'next_station' && station === '开发区') {
+        audioSrc = '../audio3/next/开发区.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方到站是开发区，终点站是大连站。服务监督电话：968600 </span><span style="color:green;">The next stop is Dalian Development Zone Station,the terminal of the train is Dalian Railway Station.</span>';
+    
+    } else if (direction === 'Dalianzhan' && position === 'arriving_station' && station === '开发区') {
+        audioSrc = '../audio3/arrving/开发区.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方进站：开发区</span><span style="color:green;">The next stop is Dalian Development Zone Station.</span>';
+    } else if (direction === 'Dalianzhan' && position === 'arrived_station' && station === '开发区') {
+        audioSrc = '../audio3/arrived/开发区.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本站：开发区</span><span style="color:green;">This is Dalian Development Zone Station.</span>';
+    }
+
+    else if (direction === 'Dalianzhan' && position === 'next_station' && station === '保税区') {
+        audioSrc = '../audio3/next/保税区.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方到站是保税区，终点站是大连站。服务监督电话：968600 </span><span style="color:green;">The next stop is Free Trade Zone Station,the terminal of the train is Dalian Railway Station.</span>';
+    
+    } else if (direction === 'Dalianzhan' && position === 'arriving_station' && station === '保税区') {
+        audioSrc = '../audio3/arrving/保税区.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方进站：保税区</span><span style="color:green;">The next stop is Free Trade Zone Station.</span>';
+    } else if (direction === 'Dalianzhan' && position === 'arrived_station' && station === '保税区') {
+        audioSrc = '../audio3/arrived/保税区.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本站：保税区</span><span style="color:green;">This is Free Trade Zone Station.</span>';
+    }
+
+    else if (direction === 'Dalianzhan' && position === 'next_station' && station === '双D港') {
+        audioSrc = '../audio3/next/双D港.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方到站是双D港，终点站是大连站。服务监督电话：968600 </span><span style="color:green;">The next stop is DD Port Station,the terminal of the train is Dalian Railway Station.</span>';
+    
+    } else if (direction === 'Dalianzhan' && position === 'arriving_station' && station === '双D港') {
+        audioSrc = '../audio3/arrving/双D港.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方进站：双D港</span><span style="color:green;">The next stop is DD Port Station.</span>';
+    } else if (direction === 'Dalianzhan' && position === 'arrived_station' && station === '双D港') {
+        audioSrc = '../audio3/arrived/双D港.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本站：双D港</span><span style="color:green;">This is DD Port Station.</span>';
+    }
+
+    else if (direction === 'Dalianzhan' && position === 'next_station' && station === '小窑湾') {
+        audioSrc = '../audio3/next/小窑湾1.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方到站是小窑湾，终点站是大连站。服务监督电话：968600 </span><span style="color:green;">The next stop is Xiaoyaowan Station,the terminal of the train is Dalian Railway Station.</span>';
+    
+    } else if (direction === 'Dalianzhan' && position === 'arriving_station' && station === '小窑湾') {
+        audioSrc = '../audio3/arrving/小窑湾.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方进站：小窑湾</span><span style="color:green;">The next stop is Xiaoyaowan Station.</span>';
+    } else if (direction === 'Dalianzhan' && position === 'arrived_station' && station === '小窑湾') {
+        audioSrc = '../audio3/arrived/小窑湾.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本站：小窑湾</span><span style="color:green;">This is Xiaoyaowan Station.</span>';
+    }
+
+    else if (direction === 'Dalianzhan' && position === 'next_station' && station === '大连站') {
+        audioSrc = '../audio3/next/大连站.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方到站是大连站，终点站是大连站。服务监督电话：968600 </span><span style="color:green;">The next stop is Dalian Railway Station,the terminal of the train is Dalian Railway Station.</span>';
+    
+    } else if (direction === 'Dalianzhan' && position === 'arriving_station' && station === '大连站') {
+        audioSrc = '../audio3/arrving/大连站.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">前方进站：大连站</span><span style="color:green;">The next stop is Dalian Railway Station.</span>';
+    } else if (direction === 'Dalianzhan' && position === 'arrived_station' && station === '大连站') {
+        audioSrc = '../audio3/arrived/大连站.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">本站：大连站</span><span style="color:green;">This is Dalian Railway Station.</span>';
+    }
+
+    // 设置音频源并播放  
+    if (audioSrc) {  
+        audioPlayer.src = audioSrc;  
+        audioPlayer.play();  
+    }  
+});  
+  
+stopBtn.addEventListener('click', function() {  
+    audioPlayer.pause();  
+    audioPlayer.currentTime = 0; // 重置到音频开始位置  
+});  
+</script>  
+  
+</body>  
+</html>

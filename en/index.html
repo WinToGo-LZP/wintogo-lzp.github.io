@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="metro" content="A software to Simulator Dalian Metro Station">
+    <title>大连地铁报站模拟器Web版</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            margin-top: 20px;
+            font-size: 60px;
+            color: #333;
+        }
+        .metro-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .metro-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 1500px;
+            padding: 15px;
+            border-radius: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size:50px;
+        }
+        .line1 { background-color:  #07c700;color: white; } /* 1号线*/
+        .line2 { background-color:  #2584ff;color: white; } /* 2号线*/
+        .line5 { background-color:  #ff0000;color: white; } /* 5号线*/
+        .line12 { background-color: #8c00ff; color: white; } /* 12号线 */
+        .line3 { background-color: #ff0077; color: white; } /* 3号线 */
+        .line13 { background-color: #e1e100; color: blue; } /* 13号线 */
+        .github { background-color: #000000; color: white; } /* github */
+        .metro-button span {
+            margin-bottom: 5px;
+        }
+        .metro-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<label style="color: black;for="station">language</label>  
+<select id="language">  
+    <option value="en">English</option>
+    <option value="cn">简体中文</option>
+    </select>
+    <script>
+    document.getElementById("language").addEventListener("change", function() {
+    var selectedLanguage = this.value;
+    if (selectedLanguage === 'cn') {
+        window.location.href = '../index.html';
+    }
+});
+    </script>
+<body>
+    <h1>Dalian Metro Station Simulator Web</h1>
+ <!--  <h2>每日诗句推荐>w<</h2>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    <div id="poem_sentence"></div>
+    <div id="poem_info"></div>
+    <script type="text/javascript">
+      jinrishici.load(function(result) {
+        var sentence = document.querySelector("#poem_sentence")
+        var info = document.querySelector("#poem_info")
+        sentence.innerHTML = result.data.content
+        info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '《' + result.data.origin.title + '》'
+      });
+    </script>
+--> 
+    <h2>Swipe up and down to see the route</h2>
+    <div class="metro-buttons">
+        <a href="line1.html">
+            <div class="metro-button line1">
+                <span class="sub-title">Line 1</span>
+                
+            </div>
+        </a>
+        <div class="metro-buttons">
+            <a href="../404.html">
+                <div class="metro-button line2">
+                    <span class="sub-title">Line 2</span>
+                    
+                </div>
+            </a>
+
+    <div class="metro-buttons">
+        <a href="line3.html">
+            <div class="metro-button line3">
+                <span class="sub-title">Line 3</span>
+                
+            </div>
+        </a>
+        <div class="metro-buttons">
+            <a href="../404.html">
+                <div class="metro-button line5">
+                    <span class="sub-title">Line 5</span>
+                    
+                </div>
+            </a>
+    <div class="metro-buttons">
+        <a href="line12.html">
+            <div class="metro-button line12">
+                <span class="sub-title">Line 12</span>
+                
+            </div>
+        </a>
+        <div class="metro-buttons">
+            <a href="line13.html">
+                <div class="metro-button line13">
+                    <span class="sub-title">Line 3 Branch and Line 13</span>
+                    
+                </div>
+            </a>
+         <div class="metro-buttons">
+                <a href="https://github.com/WinToGo-LZP/WinToGo-LZP.github.io">
+                    <div class="metro-button github">
+                        <span class="sub-title">Github</span>
+                        
+                    </div>
+                </a>
+                
+        <!-- 添加更多线路按钮时复制以上div并更改class为对应的线路颜色 -->
+
+    </div>
+</body>
+</html>
