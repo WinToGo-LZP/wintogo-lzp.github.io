@@ -1,9 +1,9 @@
 <!DOCTYPE html>  
-<html lang="en"> 
+<html lang="tw">  
 <head>  
 <meta charset="UTF-8">  
 <meta name="metro" content="A software to Simulator Dalian Metro Station">  
-<title>Dalian Metro Station Simulator Web</title>  
+<title>大連地鐵報站模擬器Web版</title>  
 </head>  
 <body>  
     <link rel="stylesheet" type="css" href="style.css">
@@ -25,10 +25,10 @@ marquee.zimu {
         <marquee scrollamount="25" scrolldelay="20" class="zimu"white-space: pre-line><span style="color:red;">欢迎使用大连地铁报站模拟器Web版！</span><span style="color:green;">Welcome use Dalian Metro Station Simulator Web!</span></marquee>
         </font>
         
-        <button onclick="goBack()">Back to home</button>
-<h1 style="color: white;">Dalian Metro Line 1🚇</h1>  
+        <button onclick="goBack()">返回主頁</button>
+<h1 style="color: white;">大連地鐵1號綫🚇</h1>  
 
-<h3 style="color: #07c700;">Hekou(Transfer to Line 12)=Qixianling=Dalian Maritime University=Xueyuan Square=Heishijiao=2nd Hospital of Dalian Medical University=Xinghai Square=Convention&Exhibition Center=Fuguo Street=Xi'an Road(Transfer to Line 2)=Xinggong Street=Zhongchang Street=Xianggong Street=Chunliu=Dongwei Road=Songjiang Road=Qianshan Road=Huanan Square=Huanan North=Huabei Road=Dalian North Railway Station(Transfer to Line 2)=Yaojia</h3>
+<h3 style="color: #07c700;">河口（換乘12號線）=七賢嶺=海事大學=學苑廣場=黑石礁=大醫二院=星海廣場=會展中心=富國街=西安路(換乘2號線)=興工街=中長街=香工街=春柳=東緯路=松江路=千山路=華南廣場=華南北=華北路=大連北站(換乘2號線)=姚家</h3>
 
 <style>
     body {
@@ -58,52 +58,52 @@ marquee.zimu {
 
 <body background="image/Line1.jpg"></body>
   
-<label style="color: white;for="direction">Terminal</label>  
+<label style="color: white;for="direction">方向:</label>  
 <select id="direction">  
-    <option value="Yaojia">Yaojia</option>  
-  <option value="Hekou">Hekou</option>  
+    <option value="Yaojia">姚家</option>  
+  <option value="Hekou">河口</option>  
 </select> 
   
-<label style="color: white;for="position">Where</label>  
+<label style="color: white;for="position">位置:</label>  
 <select id="position">  
-    <option value="next_station">Next stop</option>  
-    <option value="arriving_station">Arriving stop</option>  
-    <option value="arrived_station">Arrived stop</option>  
+    <option value="next_station">下一站</option>  
+    <option value="arriving_station">將到站</option>  
+    <option value="arrived_station">已到站</option>  
 </select>  
   
-<label style="color: white;for="station">Station</label>  
+<label style="color: white;for="station">站名:</label>  
 <select id="station">  
-        <option value="河口">Hekou</option>  
-        <option value="七贤岭">Qixianling</option>
-        <option value="海事大学">Dalian Martime University</option> 
-        <option value="学苑广场">Xueyuan Square</option>
-        <option value="黑石礁">Heishijiao</option>
-        <option value="大医二院">2nd Hospital of Dalian Medical University</option>
-        <option value="星海广场">Xinghai Square</option>
-        <option value="会展中心">Convention & Exhibition Center</option>
-        <option value="富国街">Fuguo Street</option>
-        <option value="西安路">Xi'an Road</option>
-        <option value="兴工街">Xinggong Street</option>
-        <option value="中长街">Zhongchang Street</option>
-        <option value="香工街">Xianggong Street</option>
-        <option value="春柳">Chunliu</option>
-        <option value="东纬路">Dongwei Road</option>
-        <option value="松江路">Songjiang Road</option>
-        <option value="千山路">Qianshan Road</option>
-        <option value="华南广场">Hua'nan Square</option>
-        <option value="华南北">Hua'nan North</option>
-        <option value="华北路">Huabei Road</option>
-        <option value="大连北站">Dalian North Railway Station</option>
-        <option value="姚家">Yaojia</option>
+    <option value="河口">河口</option>  
+    <option value="七賢嶺">七賢嶺</option>
+    <option value="海事大學">海事大學</option> 
+    <option value="學苑廣場">學苑廣場</option>
+    <option value="黑石礁">黑石礁</option>
+    <option value="大醫二院">大醫二院</option>
+    <option value="星海廣場">星海廣場</option>
+    <option value="會展中心">會展中心</option>
+    <option value="富國街">富國街</option>
+    <option value="西安路">西安路</option>
+    <option value="興工街">興工街</option>
+    <option value="中長街">中長街</option>
+    <option value="香工街">香工街</option>
+    <option value="春柳">春柳</option>
+    <option value="東緯路">東緯路</option>
+    <option value="松江路">松江路</option>
+    <option value="千山路">千山路</option>
+    <option value="華南廣場">華南廣場</option>
+    <option value="華南北">華南北</option>
+    <option value="華北路">華北路</option>
+    <option value="大連北站">大連北站</option>
+    <option value="姚家">姚家</option>
              
 
 
     <!-- 可以继续添加其他站名 -->  
 </select>  
 
-<button id="playBtn">Play▶︎</button>  
-<button id="stopBtn">Stop⏹</button>  
-<a <a style="color: white;" href ="https://cloud.189.cn/t/uAVfqqjmeqQz （访问码：4ngt）" download="">Get and download station radio</a>
+<button id="playBtn">開始播放▶︎</button>  
+<button id="stopBtn">停止播放⏹</button>  
+<a <a style="color: white;" href ="https://cloud.189.cn/t/uAVfqqjmeqQz （访问码：4ngt）" download="">獲取下載報站音頻</a>
 <!--<h2 style="color: pink;">重要通知：河口方向暂未制作，所以报站下载和聆听暂时不可用！</h2>   -->
 <audio id="audioPlayer" preload="auto" style="display:none;">  
     <!-- 音频文件源会根据JavaScript动态设置 -->  
@@ -139,29 +139,29 @@ playBtn.addEventListener('click', function() {
     var titleElement = document.querySelector('marquee');
  
     if (direction === 'Yaojia' && position === 'next_station' && station === '河口') {
-        audioSrc = '../error.mp3'; 
+        audioSrc = 'error.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">⚠播放出错，请不要选择起点站，请重新选择！</span><span style="color:green;">There is an error in playback, please do not select the starting station, please select it again.</span>';
 
     
     } else if (direction === 'Yaojia' && position === 'arriving_station' && station === '河口') {
-        audioSrc = '../error.mp3'; 
+        audioSrc = 'error.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">⚠播放出错，请不要选择起点站，请重新选择！</span><span style="color:green;">There is an error in playback, please do not select the starting station, please select it again.</span>';
 
     } else if (direction === 'Yaojia' && position === 'arrived_station' && station === '河口') {
-        audioSrc = '../error.mp3'; 
+        audioSrc = 'error.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">⚠播放出错，请不要选择起点站，请重新选择！</span><span style="color:green;">There is an error in playback, please do not select the starting station, please select it again.</span>';
     }
       else if (direction === 'Hekou' && position === 'next_station' && station === '姚家') {
-        audioSrc = '../error.mp3'; 
+        audioSrc = 'error.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">⚠播放出错，请不要选择起点站，请重新选择！</span><span style="color:green;">There is an error in playback, please do not select the starting station, please select it again.</span>';
 
     
     } else if (direction === 'Hekou' && position === 'arriving_station' && station === '姚家') {
-        audioSrc = '../error.mp3'; 
+        audioSrc = 'error.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">⚠播放出错，请不要选择起点站，请重新选择！</span><span style="color:green;">There is an error in playback, please do not select the starting station, please select it again.</span>';
 
     } else if (direction === 'Hekou' && position === 'arrived_station' && station === '姚家') {
-        audioSrc = '../error.mp3'; 
+        audioSrc = 'error.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">⚠播放出错，请不要选择起点站，请重新选择！</span><span style="color:green;">There is an error in playback, please do not select the starting station, please select it again.</span>';
 
     }
@@ -171,476 +171,476 @@ playBtn.addEventListener('click', function() {
 //以上部分为错误报站
 //以下部分为姚家方向的报站
     else if (direction === 'Yaojia' && position === 'next_station' && station === '七贤岭') {
-        audioSrc = '../audio1/Yaojia/next/七贤岭.mp3'; 
+        audioSrc = 'audio1/Yaojia/next/七贤岭.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往姚家车站，前方到站七贤岭。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Yaojia Station.The next stop is Qixianling Station.</span>';
     
     } else if (direction === 'Yaojia' && position === 'arriving_station' && station === '七贤岭') {
-        audioSrc = '../audio1/Yaojia/arrving/七贤岭.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/七贤岭.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">七贤岭车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Qixianling Station,please prepare to leave the train.</span>';
     } else if (direction === 'Yaojia' && position === 'arrived_station' && station === '七贤岭') {
-        audioSrc = '../audio1/Yaojia/arrived/七贤岭.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/七贤岭.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">七贤岭车站到了。</span><span style="color:green;">We are now at Qixianling Station.</span>';
     }
 
     else if (direction === 'Yaojia' && position === 'next_station' && station === '海事大学') {
-        audioSrc = '../audio1/Yaojia/next/海事大学.mp3'; 
+        audioSrc = 'audio1/Yaojia/next/海事大学.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往姚家车站，前方到站海事大学。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Yaojia Station.The next stop is Dalian Maritime University Station.</span>';
     
     } else if (direction === 'Yaojia' && position === 'arriving_station' && station === '海事大学') {
-        audioSrc = '../audio1/Yaojia/arrving/海事大学.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/海事大学.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">海事大学车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Dalian Maritime University Station,please prepare to leave the train.</span>';
     } else if (direction === 'Yaojia' && position === 'arrived_station' && station === '海事大学') {
-        audioSrc = '../audio1/Yaojia/arrived/海事大学.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/海事大学.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">海事大学车站到了。</span><span style="color:green;">We are now at Dalian Maritime University Station.</span>';
     }
     else if (direction === 'Yaojia' && position === 'next_station' && station === '学苑广场') {
-        audioSrc = '../audio1/Yaojia/next/学苑广场.mp3'; 
+        audioSrc = 'audio1/Yaojia/next/学苑广场.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往姚家车站，前方到站学苑广场。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Yaojia Station.The next stop is Xueyuan Square Station.</span>';
     
     } else if (direction === 'Yaojia' && position === 'arriving_station' && station === '学苑广场') {
-        audioSrc = '../audio1/Yaojia/arrving/学苑广场.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/学苑广场.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">学苑广场车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Xueyuan Square Station,please prepare to leave the train.</span>';
     } else if (direction === 'Yaojia' && position === 'arrived_station' && station === '学苑广场') {
-        audioSrc = '../audio1/Yaojia/arrived/学苑广场.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/学苑广场.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">学苑广场车站到了。</span><span style="color:green;">We are now at Xueyuan Square Station.</span>';
     }
 
     else if (direction === 'Yaojia' && position === 'next_station' && station === '黑石礁') {
-        audioSrc = '../audio1/Yaojia/next/黑石礁.mp3'; 
+        audioSrc = 'audio1/Yaojia/next/黑石礁.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往姚家车站，前方到站黑石礁。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Yaojia Station.The next stop is Heishijiao Station.</span>';
     
     } else if (direction === 'Yaojia' && position === 'arriving_station' && station === '黑石礁') {
-        audioSrc = '../audio1/Yaojia/arrving/黑石礁.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/黑石礁.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">黑石礁车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Heishijiao Station,please prepare to leave the train.</span>';
     } else if (direction === 'Yaojia' && position === 'arrived_station' && station === '黑石礁') {
-        audioSrc = '../audio1/Yaojia/arrived/黑石礁.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/黑石礁.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">黑石礁车站到了。</span><span style="color:green;">We are now at Heishijiao Station.</span>';
     }
     else if (direction === 'Yaojia' && position === 'next_station' && station === '大医二院') {
-        audioSrc = '../audio1/Yaojia/next/大医二院.mp3'; 
+        audioSrc = 'audio1/Yaojia/next/大医二院.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往姚家车站，前方到站大医二院。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Yaojia Station.The next stop is 2nd Hospital of Dalian Medical University Station.</span>';
     
     } else if (direction === 'Yaojia' && position === 'arriving_station' && station === '大医二院') {
-        audioSrc = '../audio1/Yaojia/arrving/大医二院.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/大医二院.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">大医二院车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at 2nd Hospital of Dalian Medical University Station,please prepare to leave the train.</span>';
     } else if (direction === 'Yaojia' && position === 'arrived_station' && station === '大医二院') {
-        audioSrc = '../audio1/Yaojia/arrived/大医二院.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/大医二院.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">大医二院车站到了。</span><span style="color:green;">We are now at 2nd Hospital of Dalian Medical University Station.</span>';
     }
     else if (direction === 'Yaojia' && position === 'next_station' && station === '星海广场') {
-        audioSrc = '../audio1/Yaojia/next/星海广场.mp3'; 
+        audioSrc = 'audio1/Yaojia/next/星海广场.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往姚家车站，前方到站星海广场。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Yaojia Station.The next stop is Xinghai Square Station.</span>';
     
     } else if (direction === 'Yaojia' && position === 'arriving_station' && station === '星海广场') {
-        audioSrc = '../audio1/Yaojia/arrving/星海广场.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/星海广场.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">星海广场车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Xinghai Square Station,please prepare to leave the train.</span>';
     } else if (direction === 'Yaojia' && position === 'arrived_station' && station === '星海广场') {
-        audioSrc = '../audio1/Yaojia/arrived/星海广场.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/星海广场.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">星海广场车站到了。</span><span style="color:green;">We are now at Xinghai Square Station.</span>';
     }
     else if (direction === 'Yaojia' && position === 'next_station' && station === '会展中心') {
-        audioSrc = '../audio1/Yaojia/next/会展中心.mp3'; 
+        audioSrc = 'audio1/Yaojia/next/会展中心.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往姚家车站，前方到站会展中心。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Yaojia Station.The next stop is Convention & Exhibition Center Station.</span>';
     
     } else if (direction === 'Yaojia' && position === 'arriving_station' && station === '会展中心') {
-        audioSrc = '../audio1/Yaojia/arrving/会展中心.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/会展中心.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">会展中心车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Convention & Exhibition Center Station,please prepare to leave the train.</span>';
     } else if (direction === 'Yaojia' && position === 'arrived_station' && station === '会展中心') {
-        audioSrc = '../audio1/Yaojia/arrived/会展中心.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/会展中心.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">会展中心车站到了。</span><span style="color:green;">We are now at Convention & Exhibition Center Station.</span>';
     }
     else if (direction === 'Yaojia' && position === 'next_station' && station === '富国街') {
-        audioSrc = '../audio1/Yaojia/next/富国街.mp3'; 
+        audioSrc = 'audio1/Yaojia/next/富国街.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往姚家车站，前方到站富国街。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Yaojia Station.The next stop is Fuguo Street Station.</span>';
     
     } else if (direction === 'Yaojia' && position === 'arriving_station' && station === '富国街') {
-        audioSrc = '../audio1/Yaojia/arrving/富国街.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/富国街.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">富国街车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Fuguo Street Station,please prepare to leave the train.</span>';
     } else if (direction === 'Yaojia' && position === 'arrived_station' && station === '富国街') {
-        audioSrc = '../audio1/Yaojia/arrived/富国街.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/富国街.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">富国街车站到了。</span><span style="color:green;">We are now at Fuguo Street Station.</span>';
     }
 
     else if (direction === 'Yaojia' && position === 'next_station' && station === '西安路') {
-        audioSrc = '../audio1/Yaojia/next/西安路.mp3'; 
+        audioSrc = 'audio1/Yaojia/next/西安路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往姚家车站，前方到站西安路。西安路站是换乘车站，需要乘坐二号线列车的乘客，请在本站下车。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Yaojia Station.The next stop is Xi-an Road Station.Xi-an Road Station is a transfer station,passenges for Line 2,please get off at this station.</span>';
     
     } else if (direction === 'Yaojia' && position === 'arriving_station' && station === '西安路') {
-        audioSrc = '../audio1/Yaojia/arrving/西安路.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/西安路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">西安路车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Xi-an Road Station,please prepare to leave the train.</span>';
     } else if (direction === 'Yaojia' && position === 'arrived_station' && station === '西安路') {
-        audioSrc = '../audio1/Yaojia/arrived/西安路.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/西安路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">西安路车站到了。</span><span style="color:green;">We are now at Xi-an Road Station.</span>';
     }
     else if (direction === 'Yaojia' && position === 'next_station' && station === '兴工街') {
-        audioSrc = '../audio1/Yaojia/next/兴工街.mp3'; 
+        audioSrc = 'audio1/Yaojia/next/兴工街.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往姚家车站，前方到站兴工街。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Yaojia Station.The next stop is Xinggong Street Station.</span>';
     
     } else if (direction === 'Yaojia' && position === 'arriving_station' && station === '兴工街') {
-        audioSrc = '../audio1/Yaojia/arrving/兴工街.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/兴工街.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">兴工街车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Xinggong Street Station,please prepare to leave the train.</span>';
     } else if (direction === 'Yaojia' && position === 'arrived_station' && station === '兴工街') {
-        audioSrc = '../audio1/Yaojia/arrived/兴工街.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/兴工街.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">兴工街车站到了。</span><span style="color:green;">We are now at Xinggong Street Station.</span>';
     }
     else if (direction === 'Yaojia' && position === 'next_station' && station === '中长街') {
-        audioSrc = '../audio1/Yaojia/next/中长街.mp3'; 
+        audioSrc = 'audio1/Yaojia/next/中长街.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往姚家车站，前方到站中长街。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Yaojia Station.The next stop is Zhongchang Street Station.</span>';
     
     } else if (direction === 'Yaojia' && position === 'arriving_station' && station === '中长街') {
-        audioSrc = '../audio1/Yaojia/arrving/中长街.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/中长街.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">中长街车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Zhongchang Street Station,please prepare to leave the train.</span>';
     } else if (direction === 'Yaojia' && position === 'arrived_station' && station === '中长街') {
-        audioSrc = '../audio1/Yaojia/arrived/中长街.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/中长街.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">中长街车站到了。</span><span style="color:green;">We are now at Zhongchang Street Station.</span>';
     }
     else if (direction === 'Yaojia' && position === 'next_station' && station === '香工街') {
-        audioSrc = '../audio1/Yaojia/next/香工街.mp3'; 
+        audioSrc = 'audio1/Yaojia/next/香工街.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往姚家车站，前方到站香工街。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Yaojia Station.The next stop is Xianggong Street Station.</span>';
     
     } else if (direction === 'Yaojia' && position === 'arriving_station' && station === '香工街') {
-        audioSrc = '../audio1/Yaojia/arrving/香工街.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/香工街.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">香工街车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Xianggong Street Station,please prepare to leave the train.</span>';
     } else if (direction === 'Yaojia' && position === 'arrived_station' && station === '香工街') {
-        audioSrc = '../audio1/Yaojia/arrived/香工街.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/香工街.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">香工街车站到了。</span><span style="color:green;">We are now at Xianggong Street Station.</span>';
     }
 
     else if (direction === 'Yaojia' && position === 'next_station' && station === '春柳') {
-        audioSrc = '../audio1/Yaojia/next/春柳.mp3'; 
+        audioSrc = 'audio1/Yaojia/next/春柳.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往姚家车站，前方到站春柳。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Yaojia Station.The next stop is Chunliu Station.</span>';
     
     } else if (direction === 'Yaojia' && position === 'arriving_station' && station === '春柳') {
-        audioSrc = '../audio1/Yaojia/arrving/春柳.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/春柳.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">春柳车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Chunliu Station,please prepare to leave the train.</span>';
     } else if (direction === 'Yaojia' && position === 'arrived_station' && station === '春柳') {
-        audioSrc = '../audio1/Yaojia/arrived/春柳.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/春柳.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">春柳车站到了。</span><span style="color:green;">We are now at Chunliu Station.</span>';
     }
     
     else if (direction === 'Yaojia' && position === 'next_station' && station === '东纬路') {
-        audioSrc = '../audio1/Yaojia/next/东纬路.mp3'; 
+        audioSrc = 'audio1/Yaojia/next/东纬路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往姚家车站，前方到站东纬路。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Yaojia Station.The next stop is Dongwei Road Station.</span>';
     
     } else if (direction === 'Yaojia' && position === 'arriving_station' && station === '东纬路') {
-        audioSrc = '../audio1/Yaojia/arrving/东纬路.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/东纬路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">东纬路车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Dongwei Road Station,please prepare to leave the train.</span>';
     } else if (direction === 'Yaojia' && position === 'arrived_station' && station === '东纬路') {
-        audioSrc = '../audio1/Yaojia/arrived/东纬路.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/东纬路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">东纬路车站到了。</span><span style="color:green;">We are now at Dongwei Road Station.</span>';
     }
     else if (direction === 'Yaojia' && position === 'next_station' && station === '松江路') {
-        audioSrc = '../audio1/Yaojia/next/松江路.mp3'; 
+        audioSrc = 'audio1/Yaojia/next/松江路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往姚家车站，前方到站松江路。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Yaojia Station.The next stop is Songjiang Road Station.</span>';
     
     } else if (direction === 'Yaojia' && position === 'arriving_station' && station === '松江路') {
-        audioSrc = '../audio1/Yaojia/arrving/松江路.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/松江路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">松江路车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Songjiang Road Station,please prepare to leave the train.</span>';
     } else if (direction === 'Yaojia' && position === 'arrived_station' && station === '松江路') {
-        audioSrc = '../audio1/Yaojia/arrived/松江路.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/松江路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">松江路车站到了。</span><span style="color:green;">We are now at Songjiang Road Station.</span>';
     }
     else if (direction === 'Yaojia' && position === 'next_station' && station === '千山路') {
-        audioSrc = '../audio1/Yaojia/next/千山路.mp3'; 
+        audioSrc = 'audio1/Yaojia/next/千山路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往姚家车站，前方到站千山路。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Yaojia Station.The next stop is Qianshan Road Station.</span>';
     
     } else if (direction === 'Yaojia' && position === 'arriving_station' && station === '千山路') {
-        audioSrc = '../audio1/Yaojia/arrving/千山路.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/千山路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">千山路车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Qianshan Road Station,please prepare to leave the train.</span>';
     } else if (direction === 'Yaojia' && position === 'arrived_station' && station === '千山路') {
-        audioSrc = '../audio1/Yaojia/arrived/千山路.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/千山路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">千山路车站到了。</span><span style="color:green;">We are now at Qianshan Road Station.</span>';
     }
 
     else if (direction === 'Yaojia' && position === 'next_station' && station === '华南广场') {
-        audioSrc = '../audio1/Yaojia/next/华南广场.mp3'; 
+        audioSrc = 'audio1/Yaojia/next/华南广场.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往姚家车站，前方到站华南广场。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Yaojia Station.The next stop is Hua-nan Square Station.</span>';
     } else if (direction === 'Yaojia' && position === 'arriving_station' && station === '华南广场') {
-        audioSrc = '../audio1/Yaojia/arrving/华南广场.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/华南广场.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">华南广场车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Hua-nan Square Station,please prepare to leave the train.</span>';
     } else if (direction === 'Yaojia' && position === 'arrived_station' && station === '华南广场') {
-        audioSrc = '../audio1/Yaojia/arrived/华南广场.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/华南广场.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">华南广场车站到了。</span><span style="color:green;">We are now at Hua-nan Square Station.</span>';
     }
 
     else if (direction === 'Yaojia' && position === 'next_station' && station === '华南北') {
-        audioSrc = '../audio1/Yaojia/next/华南北.mp3'; 
+        audioSrc = 'audio1/Yaojia/next/华南北.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往姚家车站，前方到站华南北。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Yaojia Station.The next stop is Hua-nan North Station.</span>';
     } else if (direction === 'Yaojia' && position === 'arriving_station' && station === '华南北') {
-        audioSrc = '../audio1/Yaojia/arrving/华南北.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/华南北.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">华南北车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Hua-nan North Station,please prepare to leave the train.</span>';
     } else if (direction === 'Yaojia' && position === 'arrived_station' && station === '华南北') {
-        audioSrc = '../audio1/Yaojia/arrived/华南北.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/华南北.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">华南北车站到了。</span><span style="color:green;">We are now at Hua-nan North Station.</span>';
     }
 
     else if (direction === 'Yaojia' && position === 'next_station' && station === '华北路') {
-        audioSrc = '../audio1/Yaojia/next/华北路.mp3'; 
+        audioSrc = 'audio1/Yaojia/next/华北路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往姚家车站，前方到站华北路。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Yaojia Station.The next stop is Huabei Road Station.</span>';
     } else if (direction === 'Yaojia' && position === 'arriving_station' && station === '华北路') {
-        audioSrc = '../audio1/Yaojia/arrving/华北路.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/华北路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">华北路车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Huabei Road Station,please prepare to leave the train.</span>';
     } else if (direction === 'Yaojia' && position === 'arrived_station' && station === '华北路') {
-        audioSrc = '../audio1/Yaojia/arrived/华北路.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/华北路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">华北路车站到了。</span><span style="color:green;">We are now at Huabei Road Station.</span>';
     }
 
     else if (direction === 'Yaojia' && position === 'next_station' && station === '大连北站') {
-        audioSrc = '../audio1/Yaojia/next/大连北站.mp3'; 
+        audioSrc = 'audio1/Yaojia/next/大连北站.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往姚家车站，前方到站大连北站。大连北站是换乘车站，需要乘坐地铁二号线和高铁列车的乘客，请在本站下车。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Yaojia Station.The next stop is Dalian North Railway Station.Dalian North Railway Station is a transfer station,passenges for Line 2 and CRH,please get off at this station.</span>';
     } else if (direction === 'Yaojia' && position === 'arriving_station' && station === '大连北站') {
-        audioSrc = '../audio1/Yaojia/arrving/大连北站.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/大连北站.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">大连北站车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Dalian North Railway Station,please prepare to leave the train.</span>';
     } else if (direction === 'Yaojia' && position === 'arrived_station' && station === '大连北站') {
-        audioSrc = '../audio1/Yaojia/arrived/大连北站.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/大连北站.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">大连北站车站到了。</span><span style="color:green;">We are now at Dalian North Railway Station.</span>';
     }
 
     else if (direction === 'Yaojia' && position === 'next_station' && station === '姚家') {
-        audioSrc = '../audio1/Yaojia/next/姚家.mp3'; 
+        audioSrc = 'audio1/Yaojia/next/姚家.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往姚家车站，前方到站是本次列车的终点站姚家。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Yaojia Station.The next stop is the terminal Yaojia Station.</span>';
     } else if (direction === 'Yaojia' && position === 'arriving_station' && station === '姚家') {
-        audioSrc = '../audio1/Yaojia/arrving/姚家.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/姚家.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">姚家车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at the terminal Yaojia Station,please prepare to leave the train.</span>';
     } else if (direction === 'Yaojia' && position === 'arrived_station' && station === '姚家') {
-        audioSrc = '../audio1/Yaojia/arrived/姚家.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/姚家.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">本次列车的终点站姚家车站到了，请乘客携带好随身物品抓紧时间下车，感谢您的一路合作，欢迎您再次乘坐大连地铁。</span><span style="color:green;">We are now at the terminal Yaojia Station.Please remenber to take all your belongings when you leave the train quickly.Thank you for your cooperation and we look forward to seeing you again.</span>';
     }
 //以下部分为河口方向报站
 else if (direction === 'Hekou' && position === 'next_station' && station === '七贤岭') {
-        audioSrc = '../audio1/Hekou/next/七贤岭.MP3'; 
+        audioSrc = 'audio1/Hekou/next/七贤岭.MP3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往河口车站，前方到站七贤岭。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Yaojia Station.The next stop is Qixianling Station.</span>';
     
     } else if (direction === 'Hekou' && position === 'arriving_station' && station === '七贤岭') {
-        audioSrc = '../audio1/Yaojia/arrving/七贤岭.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/七贤岭.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">七贤岭车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Qixianling Station,please prepare to leave the train.</span>';
     } else if (direction === 'Hekou' && position === 'arrived_station' && station === '七贤岭') {
-        audioSrc = '../audio1/Yaojia/arrived/七贤岭.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/七贤岭.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">七贤岭车站到了。</span><span style="color:green;">We are now at Qixianling Station.</span>';
     }
 
     else if (direction === 'Hekou' && position === 'next_station' && station === '海事大学') {
-        audioSrc = '../audio1/Hekou/next/海事大学.MP3'; 
+        audioSrc = 'audio1/Hekou/next/海事大学.MP3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往河口车站，前方到站海事大学。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Hekou Station.The next stop is Dalian Maritime University Station.</span>';
     
     } else if (direction === 'Hekou' && position === 'arriving_station' && station === '海事大学') {
-        audioSrc = '../audio1/Yaojia/arrving/海事大学.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/海事大学.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">海事大学车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Dalian Maritime University Station,please prepare to leave the train.</span>';
     } else if (direction === 'Hekou' && position === 'arrived_station' && station === '海事大学') {
-        audioSrc = '../audio1/Yaojia/arrived/海事大学.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/海事大学.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">海事大学车站到了。</span><span style="color:green;">We are now at Dalian Maritime University Station.</span>';
     }
     else if (direction === 'Hekou' && position === 'next_station' && station === '学苑广场') {
-        audioSrc = '../audio1/Hekou/next/学苑广场.MP3'; 
+        audioSrc = 'audio1/Hekou/next/学苑广场.MP3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往河口车站，前方到站学苑广场。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Hekou Station.The next stop is Xueyuan Square Station.</span>';
     
     } else if (direction === 'Hekou' && position === 'arriving_station' && station === '学苑广场') {
-        audioSrc = '../audio1/Yaojia/arrving/学苑广场.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/学苑广场.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">学苑广场车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Xueyuan Square Station,please prepare to leave the train.</span>';
     } else if (direction === 'Hekou' && position === 'arrived_station' && station === '学苑广场') {
-        audioSrc = '../audio1/Yaojia/arrived/学苑广场.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/学苑广场.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">学苑广场车站到了。</span><span style="color:green;">We are now at Xueyuan Square Station.</span>';
     }
 
     else if (direction === 'Hekou' && position === 'next_station' && station === '黑石礁') {
-        audioSrc = '../audio1/Hekou/next/黑石礁.MP3'; 
+        audioSrc = 'audio1/Hekou/next/黑石礁.MP3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往河口车站，前方到站黑石礁。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Hekou Station.The next stop is Heishijiao Station.</span>';
     
     } else if (direction === 'Hekou' && position === 'arriving_station' && station === '黑石礁') {
-        audioSrc = '../audio1/Yaojia/arrving/黑石礁.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/黑石礁.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">黑石礁车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Heishijiao Station,please prepare to leave the train.</span>';
     } else if (direction === 'Hekou' && position === 'arrived_station' && station === '黑石礁') {
-        audioSrc = '../audio1/Yaojia/arrived/黑石礁.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/黑石礁.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">黑石礁车站到了。</span><span style="color:green;">We are now at Heishijiao Station.</span>';
     }
     else if (direction === 'Hekou' && position === 'next_station' && station === '大医二院') {
-        audioSrc = '../audio1/Hekou/next/大医二院.MP3'; 
+        audioSrc = 'audio1/Hekou/next/大医二院.MP3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往河口车站，前方到站大医二院。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Hekou Station.The next stop is 2nd Hospital of Dalian Medical University Station.</span>';
     
     } else if (direction === 'Hekou' && position === 'arriving_station' && station === '大医二院') {
-        audioSrc = '../audio1/Yaojia/arrving/大医二院.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/大医二院.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">大医二院车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at 2nd Hospital of Dalian Medical University Station,please prepare to leave the train.</span>';
     } else if (direction === 'Hekou' && position === 'arrived_station' && station === '大医二院') {
-        audioSrc = '../audio1/Yaojia/arrived/大医二院.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/大医二院.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">大医二院车站到了。</span><span style="color:green;">We are now at 2nd Hospital of Dalian Medical University Station.</span>';
     }
     else if (direction === 'Hekou' && position === 'next_station' && station === '星海广场') {
-        audioSrc = '../audio1/Hekou/next/星海广场.MP3'; 
+        audioSrc = 'audio1/Hekou/next/星海广场.MP3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往河口车站，前方到站星海广场。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Hekou Station.The next stop is Xinghai Square Station.</span>';
     
     } else if (direction === 'Hekou' && position === 'arriving_station' && station === '星海广场') {
-        audioSrc = '../audio1/Yaojia/arrving/星海广场.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/星海广场.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">星海广场车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Xinghai Square Station,please prepare to leave the train.</span>';
     } else if (direction === 'Hekou' && position === 'arrived_station' && station === '星海广场') {
-        audioSrc = '../audio1/Yaojia/arrived/星海广场.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/星海广场.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">星海广场车站到了。</span><span style="color:green;">We are now at Xinghai Square Station.</span>';
     }
     else if (direction === 'Hekou' && position === 'next_station' && station === '会展中心') {
-        audioSrc = '../audio1/Hekou/next/会展中心.MP3'; 
+        audioSrc = 'audio1/Hekou/next/会展中心.MP3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往河口车站，前方到站会展中心。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Hekou Station.The next stop is Convention & Exhibition Center Station.</span>';
     
     } else if (direction === 'Hekou' && position === 'arriving_station' && station === '会展中心') {
-        audioSrc = '../audio1/Yaojia/arrving/会展中心.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/会展中心.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">会展中心车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Convention & Exhibition Center Station,please prepare to leave the train.</span>';
     } else if (direction === 'Hekou' && position === 'arrived_station' && station === '会展中心') {
-        audioSrc = '../audio1/Yaojia/arrived/会展中心.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/会展中心.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">会展中心车站到了。</span><span style="color:green;">We are now at Convention & Exhibition Center Station.</span>';
     }
     else if (direction === 'Hekou' && position === 'next_station' && station === '富国街') {
-        audioSrc = '../audio1/Hekou/next/富国街.MP3'; 
+        audioSrc = 'audio1/Hekou/next/富国街.MP3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往河口车站，前方到站富国街。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Hekou Station.The next stop is Fuguo Street Station.</span>';
     
     } else if (direction === 'Hekou' && position === 'arriving_station' && station === '富国街') {
-        audioSrc = '../audio1/Yaojia/arrving/富国街.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/富国街.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">富国街车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Fuguo Street Station,please prepare to leave the train.</span>';
     } else if (direction === 'Hekou' && position === 'arrived_station' && station === '富国街') {
-        audioSrc = '../audio1/Yaojia/arrived/富国街.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/富国街.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">富国街车站到了。</span><span style="color:green;">We are now at Fuguo Street Station.</span>';
     }
 
     else if (direction === 'Hekou' && position === 'next_station' && station === '西安路') {
-        audioSrc = '../audio1/Hekou/next/西安路.MP3'; 
+        audioSrc = 'audio1/Hekou/next/西安路.MP3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往河口车站，前方到站西安路。西安路站是换乘车站，需要乘坐二号线列车的乘客，请在本站下车。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Hekou Station.The next stop is Xi-an Road Station.Xi-an Road Station is a transfer station,passenges for Line 2,please get off at this station.</span>';
     
     } else if (direction === 'Hekou' && position === 'arriving_station' && station === '西安路') {
-        audioSrc = '../audio1/Yaojia/arrving/西安路.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/西安路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">西安路车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Xi-an Road Station,please prepare to leave the train.</span>';
     } else if (direction === 'Hekou' && position === 'arrived_station' && station === '西安路') {
-        audioSrc = '../audio1/Yaojia/arrived/西安路.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/西安路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">西安路车站到了。</span><span style="color:green;">We are now at Xi-an Road Station.</span>';
     }
     else if (direction === 'Hekou' && position === 'next_station' && station === '兴工街') {
-        audioSrc = '../audio1/Hekou/next/兴工街.MP3'; 
+        audioSrc = 'audio1/Hekou/next/兴工街.MP3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往河口车站，前方到站兴工街。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Hekou Station.The next stop is Xinggong Street Station.</span>';
     
     } else if (direction === 'Hekou' && position === 'arriving_station' && station === '兴工街') {
-        audioSrc = '../audio1/Yaojia/arrving/兴工街.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/兴工街.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">兴工街车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Xinggong Street Station,please prepare to leave the train.</span>';
     } else if (direction === 'Hekou' && position === 'arrived_station' && station === '兴工街') {
-        audioSrc = '../audio1/Yaojia/arrived/兴工街.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/兴工街.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">兴工街车站到了。</span><span style="color:green;">We are now at Xinggong Street Station.</span>';
     }
     else if (direction === 'Hekou' && position === 'next_station' && station === '中长街') {
-        audioSrc = '../audio1/Hekou/next/中长街.MP3'; 
+        audioSrc = 'audio1/Hekou/next/中长街.MP3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往河口车站，前方到站中长街。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Hekou Station.The next stop is Zhongchang Street Station.</span>';
     
     } else if (direction === 'Hekou' && position === 'arriving_station' && station === '中长街') {
-        audioSrc = '../audio1/Yaojia/arrving/中长街.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/中长街.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">中长街车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Zhongchang Street Station,please prepare to leave the train.</span>';
     } else if (direction === 'Hekou' && position === 'arrived_station' && station === '中长街') {
-        audioSrc = '../audio1/Yaojia/arrived/中长街.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/中长街.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">中长街车站到了。</span><span style="color:green;">We are now at Zhongchang Street Station.</span>';
     }
     else if (direction === 'Hekou' && position === 'next_station' && station === '香工街') {
-        audioSrc = '../audio1/Hekou/next/香工街.MP3'; 
+        audioSrc = 'audio1/Hekou/next/香工街.MP3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往河口车站，前方到站香工街。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Hekou Station.The next stop is Xianggong Street Station.</span>';
     
     } else if (direction === 'Hekou' && position === 'arriving_station' && station === '香工街') {
-        audioSrc = '../audio1/Yaojia/arrving/香工街.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/香工街.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">香工街车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Xianggong Street Station,please prepare to leave the train.</span>';
     } else if (direction === 'Hekou' && position === 'arrived_station' && station === '香工街') {
-        audioSrc = '../audio1/Yaojia/arrived/香工街.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/香工街.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">香工街车站到了。</span><span style="color:green;">We are now at Xianggong Street Station.</span>';
     }
 
     else if (direction === 'Hekou' && position === 'next_station' && station === '春柳') {
-        audioSrc = '../audio1/Hekou/next/春柳.MP3'; 
+        audioSrc = 'audio1/Hekou/next/春柳.MP3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往河口车站，前方到站春柳。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Hekou Station.The next stop is Chunliu Station.</span>';
     
     } else if (direction === 'Hekou' && position === 'arriving_station' && station === '春柳') {
-        audioSrc = '../audio1/Yaojia/arrving/春柳.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/春柳.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">春柳车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Chunliu Station,please prepare to leave the train.</span>';
     } else if (direction === 'Hekou' && position === 'arrived_station' && station === '春柳') {
-        audioSrc = '../audio1/Yaojia/arrived/春柳.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/春柳.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">春柳车站到了。</span><span style="color:green;">We are now at Chunliu Station.</span>';
     }
     
     else if (direction === 'Hekou' && position === 'next_station' && station === '东纬路') {
-        audioSrc = '../audio1/Hekou/next/东纬路.MP3'; 
+        audioSrc = 'audio1/Hekou/next/东纬路.MP3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往河口车站，前方到站东纬路。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Hekou Station.The next stop is Dongwei Road Station.</span>';
     
     } else if (direction === 'Hekou' && position === 'arriving_station' && station === '东纬路') {
-        audioSrc = '../audio1/Yaojia/arrving/东纬路.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/东纬路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">东纬路车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Dongwei Road Station,please prepare to leave the train.</span>';
     } else if (direction === 'Hekou' && position === 'arrived_station' && station === '东纬路') {
-        audioSrc = '../audio1/Yaojia/arrived/东纬路.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/东纬路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">东纬路车站到了。</span><span style="color:green;">We are now at Dongwei Road Station.</span>';
     }
     else if (direction === 'Hekou' && position === 'next_station' && station === '松江路') {
-        audioSrc = '../audio1/Hekou/next/松江路.MP3'; 
+        audioSrc = 'audio1/Hekou/next/松江路.MP3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往河口车站，前方到站松江路。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Hekou Station.The next stop is Songjiang Road Station.</span>';
     
     } else if (direction === 'Hekou' && position === 'arriving_station' && station === '松江路') {
-        audioSrc = '../audio1/Yaojia/arrving/松江路.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/松江路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">松江路车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Songjiang Road Station,please prepare to leave the train.</span>';
     } else if (direction === 'Hekou' && position === 'arrived_station' && station === '松江路') {
-        audioSrc = '../audio1/Yaojia/arrived/松江路.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/松江路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">松江路车站到了。</span><span style="color:green;">We are now at Songjiang Road Station.</span>';
     }
     else if (direction === 'Hekou' && position === 'next_station' && station === '千山路') {
-        audioSrc = '../audio1/Hekou/next/千山路.MP3'; 
+        audioSrc = 'audio1/Hekou/next/千山路.MP3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往河口车站，前方到站千山路。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Hekou Station.The next stop is Qianshan Road Station.</span>';
     
     } else if (direction === 'Hekou' && position === 'arriving_station' && station === '千山路') {
-        audioSrc = '../audio1/Yaojia/arrving/千山路.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/千山路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">千山路车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Qianshan Road Station,please prepare to leave the train.</span>';
     } else if (direction === 'Hekou' && position === 'arrived_station' && station === '千山路') {
-        audioSrc = '../audio1/Yaojia/arrived/千山路.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/千山路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">千山路车站到了。</span><span style="color:green;">We are now at Qianshan Road Station.</span>';
     }
 
     else if (direction === 'Hekou' && position === 'next_station' && station === '华南广场') {
-        audioSrc = '../audio1/Hekou/next/华南广场.MP3'; 
+        audioSrc = 'audio1/Hekou/next/华南广场.MP3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往河口车站，前方到站华南广场。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Hekou Station.The next stop is Hua-nan Square Station.</span>';
     } else if (direction === 'Hekou' && position === 'arriving_station' && station === '华南广场') {
-        audioSrc = '../audio1/Yaojia/arrving/华南广场.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/华南广场.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">华南广场车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Hua-nan Square Station,please prepare to leave the train.</span>';
     } else if (direction === 'Hekou' && position === 'arrived_station' && station === '华南广场') {
-        audioSrc = '../audio1/Yaojia/arrived/华南广场.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/华南广场.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">华南广场车站到了。</span><span style="color:green;">We are now at Hua-nan Square Station.</span>';
     }
 
     else if (direction === 'Hekou' && position === 'next_station' && station === '华南北') {
-        audioSrc = '../audio1/Hekou/next/华南北.MP3'; 
+        audioSrc = 'audio1/Hekou/next/华南北.MP3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往河口车站，前方到站华南北。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Hekou Station.The next stop is Hua-nan North Station.</span>';
     } else if (direction === 'Hekou' && position === 'arriving_station' && station === '华南北') {
-        audioSrc = '../audio1/Yaojia/arrving/华南北.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/华南北.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">华南北车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Hua-nan North Station,please prepare to leave the train.</span>';
     } else if (direction === 'Hekou' && position === 'arrived_station' && station === '华南北') {
-        audioSrc = '../audio1/Yaojia/arrived/华南北.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/华南北.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">华南北车站到了。</span><span style="color:green;">We are now at Hua-nan North Station.</span>';
     }
 
     else if (direction === 'Hekou' && position === 'next_station' && station === '华北路') {
-        audioSrc = '../audio1/Hekou/next/华北路.MP3'; 
+        audioSrc = 'audio1/Hekou/next/华北路.MP3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往河口车站，前方到站华北路。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Hekou Station.The next stop is Huabei Road Station.</span>';
     } else if (direction === 'Hekou' && position === 'arriving_station' && station === '华北路') {
-        audioSrc = '../audio1/Yaojia/arrving/华北路.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/华北路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">华北路车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Huabei Road Station,please prepare to leave the train.</span>';
     } else if (direction === 'Hekou' && position === 'arrived_station' && station === '华北路') {
-        audioSrc = '../audio1/Yaojia/arrived/华北路.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/华北路.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">华北路车站到了。</span><span style="color:green;">We are now at Huabei Road Station.</span>';
     }
 
     else if (direction === 'Hekou' && position === 'next_station' && station === '大连北站') {
-        audioSrc = '../audio1/Hekou/next/大连北站.MP3'; 
+        audioSrc = 'audio1/Hekou/next/大连北站.MP3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往河口车站，前方到站大连北站。大连北站是换乘车站，需要乘坐地铁二号线和高铁列车的乘客，请在本站下车。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Hekou Station.The next stop is Dalian North Railway Station.Dalian North Railway Station is a transfer station,passenges for Line 2 and CRH,please get off at this station.</span>';
     } else if (direction === 'Hekou' && position === 'arriving_station' && station === '大连北站') {
-        audioSrc = '../audio1/Yaojia/arrving/大连北站.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrving/大连北站.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">大连北站车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Dalian North Railway Station,please prepare to leave the train.</span>';
     } else if (direction === 'Hekou' && position === 'arrived_station' && station === '大连北站') {
-        audioSrc = '../audio1/Yaojia/arrived/大连北站.mp3'; 
+        audioSrc = 'audio1/Yaojia/arrived/大连北站.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">大连北站车站到了。</span><span style="color:green;">We are now at Dalian North Railway Station.</span>';
     }
 
     else if (direction === 'Hekou' && position === 'next_station' && station === '河口') {
-        audioSrc = '../audio1/Hekou/next/河口.MP3'; 
+        audioSrc = 'audio1/Hekou/next/河口.MP3'; 
         titleElement.innerHTML = '<span style="color:red;">乘客您好，欢迎乘坐大连地铁一号线列车，本次列车开往河口车站，前方到站是本次列车的终点站河口。河口站是换乘车站，需要乘坐地铁十二号线的乘客，请在本站下车。地铁服务监督电话：968600</span><span style="color:green;">Welcome to the Dalian Metro Line 1,this train is bound for Hekou Station.The next stop is the terminal Hekou Station.Hekou Station is a transfer station,passengers for Line 12,please get off at this station.</span>';
     } else if (direction === 'Hekou' && position === 'arriving_station' && station === '河口') {
-        audioSrc = '../audio1/Hekou/将到站河口.MP3'; 
+        audioSrc = 'audio1/Hekou/将到站河口.MP3'; 
         titleElement.innerHTML = '<span style="color:red;">河口车站就要到了，请下车乘客提前做好准备，从左侧车门下车。</span><span style="color:green;">We are now arrving at Hekou Station,please prepare to leave the train.</span>';
     } else if (direction === 'Hekou' && position === 'arrived_station' && station === '河口') {
-        audioSrc = '../audio1/Hekou/已到站河口.MP3'; 
+        audioSrc = 'audio1/Hekou/已到站河口.MP3'; 
         titleElement.innerHTML = '<span style="color:red;">本次列车的终点站河口车站到了，请乘客携带好随身物品抓紧时间下车，感谢您的一路合作，欢迎您再次乘坐大连地铁。</span><span style="color:green;">We are now at the terminal Hekou Station.Please remenber to take all your belongings when you leave the train quickly.Thank you for your cooperation and we look forward to seeing you again.</span>';
     }
 

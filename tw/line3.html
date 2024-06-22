@@ -1,9 +1,9 @@
 <!DOCTYPE html>  
-<html lang="en">
+<html lang="tw">  
 <head>  
 <meta charset="UTF-8">  
 <meta name="metro" content="A software to Simulator Dalian Metro Station">  
-<title>Dalian Metro Station Simulator Web</title>  
+<title>大連地鐵報站模擬器Web版</title>  
 </head>  
 <body>  
     <link rel="stylesheet" type="css" href="style.css">
@@ -25,9 +25,9 @@ marquee.zimu {
         <marquee scrollamount="25" scrolldelay="20" class="zimu">欢迎使用大连地铁报站模拟器Web版！Welcome use Dalian Metro Station Simulator Web!</marquee>
         </font>
         
-        <button onclick="goBack()">Back to home</button>
-<h1 style="color: white;">Dalian Metro Line 3🚇</h1>  
-<h3 style="color: blue;">Golden Pebble Beach==Xiaoyaowan==DD Port==Free Trade Zone==Dalian Development Zone(Transfer to Line 3 Branch and Line 13)==Jinma Road→Metro Haiwan Train Depot→Dalianwan==Houyan(Transfer to Line 5)==Quanshui==Jinjia Street==Xianglujiao==Dalian Railway Station(Transfer to Line 5)</h3>
+        <button onclick="goBack()">返回主页</button>
+<h1 style="color: white;">大連地鐵3號綫🚇</h1>  
+<h3 style="color: blue;">金石灘==小窯灣==雙D港==保稅區==開發區(換乘3支/13號綫)==金馬路→地鐵海灣基地→大連灣==后鹽(换乘5號綫)==泉水==金家街==香爐礁==大連站(换乘5號綫)</h3>
 <style>
     body {
         /*加载背景图：图片地址 不平铺 */
@@ -47,41 +47,41 @@ marquee.zimu {
 
 <body background="image/Line3.jpg"></body>
   
-<label style="color: white;for="direction">Terminal</label>  
+<label style="color: white;for="direction">方向:</label>  
 <select id="direction">  
-    <option value="Jinshitan">Golden Pebble Beach</option>  
-    <option value="Dalianzhan">Dalian Railway Station</option>  
+    <option value="Jinshitan">金石灘</option>  
+    <option value="Dalianzhan">大連站</option>  
 </select>  
   
-<label style="color: white;for="position">Where</label>  
+<label style="color: white;for="position">位置:</label>  
 <select id="position">  
-    <option value="next_station">Next stop</option>  
-    <option value="arriving_station">Arrving stop</option>  
-    <option value="arrived_station">Arrived stop</option>  
+    <option value="next_station">下一站</option>  
+    <option value="arriving_station">將到站</option>  
+    <option value="arrived_station">已到站</option>  
 </select>  
   
-<label style="color: white;for="station">Station</label>  
+<label style="color: white;for="station">站名:</label>  
 <select id="station">  
-    <option value="大连站">Dalian Railway Station</option>  
-    <option value="香炉礁">Xianglujiao</option>
-    <option value="金家街">Jinjia Street</option>    
-    <option value="泉水">Quanshui</option>
-    <option value="后盐">Houyan</option>
-    <option value="大连湾">Dalianwan</option>
-    <option value="地铁海湾基地">Metro Haiwan Train Depot</option>
-    <option value="金马路">Jinma Road</option>  
-    <option value="开发区">Dalian Development Zone</option>  
-    <option value="保税区">Free Trade Zone</option>
-    <option value="双D港">DD Port</option>    
-    <option value="小窑湾">Xiaoyaowan</option>
-    <option value="金石滩">Golden Pebble Beach</option>
+    <option value="大连站">大連站</option>  
+    <option value="香炉礁">香爐礁站</option>
+    <option value="金家街">金家街站</option>    
+    <option value="泉水">泉水站</option>
+    <option value="后盐">后鹽站</option>
+    <option value="大连湾">大連灣站</option>
+    <option value="地铁海湾基地">地鐵海灣基地站</option>
+    <option value="金马路">金馬路站</option>  
+    <option value="开发区">開發區站</option>  
+    <option value="保税区">保稅區站</option>
+    <option value="双D港">雙D港站</option>    
+    <option value="小窑湾">小窯灣站</option>
+    <option value="金石滩">金石灘站</option>
 
     <!-- 可以继续添加其他站名 -->  
 </select>  
   
-<button id="playBtn">Play▶︎</button>  
-<button id="stopBtn">Stop⏹</button>  
-<a <a style="color: white;" href ="https://cloud.189.cn/t/MruyiureYzYb （访问码：paa0）" download="">Get and download station radio</a>
+<button id="playBtn">開始播放▶︎</button>  
+<button id="stopBtn">停止播放⏹</button>  
+<a <a style="color: white;" href ="https://cloud.189.cn/t/MruyiureYzYb （访问码：paa0）" download="">獲取下載報站音頻</a>
   
 <audio id="audioPlayer" preload="auto" style="display:none;">  
     <!-- 音频文件源会根据JavaScript动态设置 -->  

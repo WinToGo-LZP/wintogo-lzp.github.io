@@ -1,9 +1,9 @@
 <!DOCTYPE html>  
-<html lang="en">
+<html lang="tw">  
 <head>  
 <meta charset="UTF-8">  
 <meta name="metro" content="A software to Simulator Dalian Metro Station">  
-<title>Dalian Metro Station Simulator Web</title>  
+<title>大連地鐵報站模擬器Web版</title>  
 </head>  
 <body>  
     <link rel="stylesheet" type="css" href="style.css">
@@ -25,10 +25,10 @@ marquee.zimu {
         <marquee scrollamount="25" scrolldelay="20" class="zimu">欢迎使用大连地铁报站模拟器Web版！Welcome use Dalian Metro Station Simulator Web!</marquee>
         </font>
         
-        <button onclick="goBack()">Back to home</button>
-<h1 style="color: white;">Dalian Metro Line 12🚇</h1>  
-<h3 style="color: greenyellow;">Lushun New Port==Tieshan==Lushun==Tahewan==Longwangtang==Huangniuchuan==Caidaling==Hekou(Transfer to Line 1)</h3>
-<p style="color: white;">Notice: Due to the copyright of the newspaper station, it has been replaced with a new version of the newspaper station, and the old version of the newspaper station will be officially suspended from 2024/6/22 13:40</p>
+        <button onclick="goBack()">返回主页</button>
+<h1 style="color: white;">大連地鐵12號綫🚇</h1>  
+<h3 style="color: greenyellow;">旅順新港==鐵山==旅順==塔河灣==龍王塘==黃泥川==蔡大嶺==河口（換乘1號綫）</h3>
+<p style="color: white;">通知：由於報站版權原因，已更換為新版報站，舊版報站從2024/6/22 13:40起正式停用</p>
 <style>
     body {
         /*加载背景图：图片地址 不平铺 */
@@ -48,35 +48,35 @@ marquee.zimu {
 
 <body background="image/Line12.jpg"></body>
   
-<label style="color: white;for="direction">Terminal</label>  
+<label style="color: white;for="direction">方向：</label>  
 <select id="direction">  
-    <option value="Lvshun New Port">Lvshun New Port</option>  
-    <option value="Hekou">Hekou</option>  
+    <option value="Lvshun New Port">旅順新港</option>  
+    <option value="Hekou">河口</option>  
 </select>  
   
-<label style="color: white;for="position">Where</label>  
+<label style="color: white;for="position">位置：</label>  
 <select id="position">  
-    <option value="next_station">Next stop</option>  
+    <option value="next_station">下一站</option>  
     <!--<option value="arriving_station">将到站</option> --> 
-    <option value="arrived_station">Arrived stop</option>  
+    <option value="arrived_station">已到站</option>  
 </select>  
   
-<label style="color: white;for="station">Station</label>  
+<label style="color: white;for="station">站名：</label>  
 <select id="station">  
-    <option value="河口站">Hekou</option>  
-    <option value="蔡大岭站">Caidaling</option>
-    <option value="黄泥川站">Huangnichuan</option>    
-    <option value="龙王塘站">Longwangtang</option>
-    <option value="塔河湾站">Tahewan</option>
-    <option value="旅顺站">Lvshun</option>
-    <option value="铁山站">Tieshan</option>
-    <option value="旅顺新港站">Lvshun New Port</option>  
+    <option value="河口站">河口站</option>  
+    <option value="蔡大岭站">蔡大嶺站</option>
+    <option value="黄泥川站">黃泥川站</option>    
+    <option value="龙王塘站">龍王塘站</option>
+    <option value="塔河湾站">塔河灣站</option>
+    <option value="旅顺站">旅順站</option>
+    <option value="铁山站">鐵山站</option>
+    <option value="旅顺新港站">旅順新港站</option>  
     <!-- 可以继续添加其他站名 -->  
 </select>  
   
-<button id="playBtn">Play▶︎</button>  
-<button id="stopBtn">Stop⏹</button>  
-<a <a style="color: white;" href ="https://cloud.189.cn/t/NfARNbu6niIr （访问码：yj3m）" download="">Get and download station radio</a>
+<button id="playBtn">開始播放▶︎</button>  
+<button id="stopBtn">停止播放⏹</button>  
+<a <a style="color: white;" href ="https://cloud.189.cn/t/NfARNbu6niIr （访问码：yj3m）" download="">獲取下載報站音頻</a>
   
 <audio id="audioPlayer" preload="auto" style="display:none;">  
     <!-- 音频文件源会根据JavaScript动态设置 -->  

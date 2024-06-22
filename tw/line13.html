@@ -1,9 +1,9 @@
 <!DOCTYPE html>  
-<html lang="en">
+<html lang="tw">  
 <head>  
 <meta charset="UTF-8">  
 <meta name="metro" content="A software to Simulator Dalian Metro Station">  
-<title>Dalian Metro Station Simulator Web</title>  
+<title>大連地鐵報站模擬器Web版</title>  
 </head>  
 <body>  
     <link rel="stylesheet" type="css" href="style.css">
@@ -25,10 +25,10 @@ marquee.zimu {
         <marquee scrollamount="25" scrolldelay="20" class="zimu">欢迎使用大连地铁报站模拟器Web版！Welcome use Dalian Metro Station Simulator Web!</marquee>
         </font>
         
-        <button onclick="goBack()">Back to home</button>
-<h1 style="color: greenyellow;">Dalian Metro Line 3 Branch+Line 13🚇</h1>  
-<h3 style="color: yellow;">Line 13=>Pulandian Zhenxing Street=Pulandian Development Zone=Haiwan High School=The Third Hospital of Dalian Medical University=Changdianpu=Shihe Beihai=Puwan Stadium=Shihe Huangqi=Sanshilipu=Ershilipu=Shisanli=Jiuli</h3>
-<h3 style="color: rgb(255, 0, 76);">Line 3 Branch=>Jiuli=CR 19th Bureau=Heping Road=Dongshan Road=Phoenix Peak=Tostem=Dalian Developmet Zone(Transfer to Line 3)</h3>
+        <button onclick="goBack()">返回主頁</button>
+<h1 style="color: greenyellow;">大連地鐵3號綫支綫+13號綫🚇</h1>  
+<h3 style="color: yellow;">13號線=>普蘭店振興街=普蘭店開發區=海灣高中=大醫三院=長店堡=石河北海=普灣體育場=石河黃旗=三十里堡=二十里堡=十三里=九里</h3>
+<h3 style="color: rgb(255, 0, 76);">3號線支線=>九里=十九局=和平路=東山路=鴻玮瀾山=通世泰=開發區(換乘3號線)</h3>
 
 
 <style>
@@ -53,48 +53,48 @@ marquee.zimu {
 
 <body background="image/line13.jpg"></body>
   
-<label style="color: white;for="direction">Terminal</label>  
+<label style="color: white;for="direction">方向:</label>  
 <select id="direction">  
-    <option value="Pulandian">Pulandian Zhenxing Street</option>  
-    <option value="Kaifaqu">Dalian Development Zone</option>  
+    <option value="Pulandian">普蘭店振興街</option>  
+    <option value="Kaifaqu">開發區</option>  
 </select>  
   
-<label style="color: white;for="position">Where</label>  
+<label style="color: white;for="position">位置:</label>  
 <select id="position">  
-    <option value="next_station">Next stop</option>  
-    <option value="arriving_station">Arriving stop</option>  
-    <option value="arrived_station">Arrived stop</option>  
+    <option value="next_station">下一站</option>  
+    <option value="arriving_station">將到站</option>  
+    <option value="arrived_station">已到站</option>  
 </select>  
   
-<label style="color: white;for="station">Station</label>  
+<label style="color: white;for="station">站名:</label>  
 <select id="station">  
-    <option value="开发区">Dalian Development Zone</option>  
-    <option value="通世泰">Tostem</option>
-    <option value="鸿玮澜山">Phoenix Peak</option>
-    <option value="东山路">Dongshan Road</option>
-    <option value="和平路">Heping Road</option>
-    <option value="十九局">CR 19th Bureau</option>
-    <option value="九里">Jiuli</option>
-    <option value="十三里">Shisanli</option>
-    <option value="二十里堡">Ershilipu</option>
-    <option value="三十里堡">Sanshilipu</option>
-    <option value="石河黄旗">Shihe Huangqi</option>
-    <option value="普湾体育场">Puwan Stadium</option>
-    <option value="石河北海">Shihe Beihai</option>
-    <option value="长店堡">Changdianpu</option>
-    <option value="大医三院">The Third Hospital of Dalian Medical University</option>
-    <option value="海湾高中">Haiwan High School</option>
-    <option value="普兰店开发区">Pulandian Development Zone</option>
-    <option value="普兰店振兴街">Pulandian Zhenxing Street</option>
+    <option value="开发区">開發區</option>  
+    <option value="通世泰">通世泰</option>
+    <option value="鸿玮澜山">鴻玮瀾山</option>
+    <option value="东山路">東山路</option>
+    <option value="和平路">和平路</option>
+    <option value="十九局">十九局</option>
+    <option value="九里">九里</option>
+    <option value="十三里">十三里</option>
+    <option value="二十里堡">二十里堡</option>
+    <option value="三十里堡">三十里堡</option>
+    <option value="石河黄旗">石河黃旗</option>
+    <option value="普湾体育场">普灣體育場</option>
+    <option value="石河北海">石河北海</option>
+    <option value="长店堡">長店堡</option>
+    <option value="大医三院">大醫三院</option>
+    <option value="海湾高中">海灣高中</option>
+    <option value="普兰店开发区">普蘭店開發區</option>
+    <option value="普兰店振兴街">普蘭店振興街</option>
 
 
 
     <!-- 可以继续添加其他站名 -->  
 </select>  
   
-<button id="playBtn">Play▶︎</button>  
-<button id="stopBtn">Stop⏹</button>  
-<a <a style="color: white;" href ="https://cloud.189.cn/t/6vuMbafauErm （访问码：9bjj）" download="">Get and download station radio</a>
+<button id="playBtn">開始播放▶︎</button>  
+<button id="stopBtn">停止播放⏹</button>  
+<a <a style="color: white;" href ="https://cloud.189.cn/t/6vuMbafauErm （访问码：9bjj）" download="">獲取下載報站音頻</a>
   
 <audio id="audioPlayer" preload="auto" style="display:none;">  
     <!-- 音频文件源会根据JavaScript动态设置 -->  
@@ -130,7 +130,7 @@ playBtn.addEventListener('click', function() {
     var titleElement = document.querySelector('marquee');
  
     if (direction === 'Pulandian' && position === 'next_station' && station === '开发区') {
-        audioSrc = '../../error.mp3'; 
+        audioSrc = '../error.mp3'; 
         titleElement.innerHTML = '<span style="color:red;">⚠播放出错，请不要选择起点站，请重新选择！</span><span style="color:green;">There is an error in playback, please do not select the starting station, please select it again.</span>';
     
     } else if (direction === 'Pulandian' && position === 'arriving_station' && station === '开发区') {
