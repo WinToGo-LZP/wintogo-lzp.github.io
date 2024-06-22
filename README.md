@@ -35,7 +35,7 @@
 
 2024/6/21 引入方正字体12.ttf，使LED滚动屏效果更逼真
 
-2024/6/22 12号线报站更换为钟秋（中）+黄华（英）版本报站，王丹报站从2024/6/22 13:40起正式停用
+2024/6/22 上线英文版页面，方便国际友人使用
 
 更多线路，敬请期待…
 
@@ -99,7 +99,7 @@ Update log
 
 2024/6/21 The introduction of the square font 12.ttf makes the LED scrolling screen effect more realistic
 
-2024/6/22 The station of Line 12 will be replaced with Zhong Qiu (Chinese) + Huang Hua (English) version of the station, and Wang Dan will be officially suspended from 2024/6/22 13:40
+2024/6/22 The English version of the page will be launched for the convenience of international friends
 
 More metro lines, please stay tuned
 
