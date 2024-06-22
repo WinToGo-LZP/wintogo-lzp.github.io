@@ -1,23 +1,16 @@
-大连地铁报站模拟器WEB版
-项目介绍
+大连地铁报站模拟器WEB版 项目介绍
+
+请注意，您使用本产品已默认代表您坚持一个中国原则!!請注意，您使用本產品已默認代表您堅持一個中國原則!!Please note that your use of this product has by default represented your adherence to the one-China principle!!
 
 “大连地铁报站模拟器WEB版”是一个开源项目，旨在提供一个方便快捷的平台，让用户能够在线收听和下载大连地铁的报站音频。本项目收录了大连地铁的基本完整报站内容，用户只需通过简单的点击和选择，即可播放或下载所需的报站音频。
 
 功能特点
 
-完整的报站收录：项目包含大连地铁各线路的报站音频，确保用户能够找到所需的报站内容。
-简单易用的界面：用户只需通过一点一选一按的操作，即可轻松选择并播放想要收听的报站。
-下载功能：除了在线播放，用户还可以选择下载报站音频，方便在没有网络连接的情况下收听。
+完整的报站收录：项目包含大连地铁各线路的报站音频，确保用户能够找到所需的报站内容。 简单易用的界面：用户只需通过一点一选一按的操作，即可轻松选择并播放想要收听的报站。 下载功能：除了在线播放，用户还可以选择下载报站音频，方便在没有网络连接的情况下收听。
 
 使用说明
 
-打开项目网页，即可看到大连地铁线路列表。
-选择想要收听的地铁线路。
-在线路页面，选择具体的站点报站。
-点击播放按钮，即可在线收听报站音频。
-如需下载报站音频，点击下载按钮即可。
-当前提供1号线，3号线，12号线以及13号线，其他线路敬请期待！
-安卓用户可在右侧下载安卓启动器
+打开项目网页，即可看到大连地铁线路列表。 选择想要收听的地铁线路。 在线路页面，选择具体的站点报站。 点击播放按钮，即可在线收听报站音频。 如需下载报站音频，点击下载按钮即可。 当前提供1号线，3号线，12号线以及13号线，其他线路敬请期待！ 安卓用户可在右侧下载安卓启动器
 
 更新日志
 
@@ -35,7 +28,7 @@
 
 2024/6/21 引入方正字体12.ttf，使LED滚动屏效果更逼真
 
-2024/6/22 上线英文版页面，方便国际友人使用
+2024/6/22 上线繁體中文和英文版页面，方便国际友人使用
 
 更多线路，敬请期待…
 
@@ -45,11 +38,9 @@
 
 开发者
 
-WinToGo-LZP
-个人主页https://space.bilibili.com/1283468503
+WinToGo-LZP 个人主页https://space.bilibili.com/1283468503
 
-Metro-老張114514
-个人主页https://space.bilibili.com/498607616
+Metro-老張114514 个人主页https://space.bilibili.com/498607616
 
 感谢以上两位开发者对本项目的贡献和付出。
 
@@ -63,29 +54,19 @@ Metro-老張114514
 
 感谢所有为本项目做出贡献的开发者、设计师和音频提供者。是你们的参与让这个项目更加完善。
 
-Dalian Metro Station Simulator WEB Version
-Project Introduction
+Dalian Metro Station Simulator WEB Version Project Introduction
 
 "Dalian Metro Station Announcement Simulator WEB Version" is an open source project that aims to provide a convenient and fast platform for users to listen to and download Dalian Metro's station announcement audio online. This project includes the basic and complete station announcement content of Dalian Metro, and users can play or download the required station announcement audio with a simple click and selection.
 
 Features:
 
-Complete station announcement: The project includes the audio of the station announcement of each line of the Dalian Metro, ensuring that users can find the required station content.
-Simple and easy-to-use interface: Users can easily select and play the station they want to listen to by selecting and clicking one by one.
-Download function: In addition to online playback, users can also choose to download the audio of the newspaper station, which is convenient for listening without an Internet connection.
+Complete station announcement: The project includes the audio of the station announcement of each line of the Dalian Metro, ensuring that users can find the required station content. Simple and easy-to-use interface: Users can easily select and play the station they want to listen to by selecting and clicking one by one. Download function: In addition to online playback, users can also choose to download the audio of the newspaper station, which is convenient for listening without an Internet connection.
 
 Directions for use
 
-Open the project webpage and you can see the list of Dalian Metro lines.
-Select the subway line you want to listen to.
-On the Line page, select a specific station to report the station.
-Click the play button to listen to the audio of the newspaper station online.
-If you want to download the newspaper audio, click the download button.
-Currently, Line 1, Line 3, Line 12 and Line 13 are available, so stay tuned!
-Android users can download the Android launcher .
+Open the project webpage and you can see the list of Dalian Metro lines. Select the subway line you want to listen to. On the Line page, select a specific station to report the station. Click the play button to listen to the audio of the newspaper station online. If you want to download the newspaper audio, click the download button. Currently, Line 1, Line 3, Line 12 and Line 13 are available, so stay tuned! Android users can download the Android launcher .
 
-Update log
-2024/6/15Late night   Project launch 
+Update log 2024/6/15Late night Project launch
 
 2024/6/16 Dalian Metro Line 12 was released on all lines
 
@@ -99,7 +80,7 @@ Update log
 
 2024/6/21 The introduction of the square font 12.ttf makes the LED scrolling screen effect more realistic
 
-2024/6/22 The English version of the page will be launched for the convenience of international friends
+2024/6/22 The Chinese Traditional and English version of the page will be launched for the convenience of international friends
 
 More metro lines, please stay tuned
 
@@ -109,11 +90,9 @@ We welcome contributions of any kind, including but not limited to code optimiza
 
 Developers
 
-WinToGo-LZP
-Personal homepage https://space.bilibili.com/1283468503
+WinToGo-LZP Personal homepage https://space.bilibili.com/1283468503
 
-Metro-老張114514
-Personal homepage https://space.bilibili.com/498607616
+Metro-老張114514 Personal homepage https://space.bilibili.com/498607616
 
 Thanks to the above two developers for their contributions and dedication to this project.
 
@@ -126,4 +105,3 @@ The copyright of the newspaper audio belongs to the original producer, and this 
 Thanks
 
 Thank you to all the developers, designers, and audio providers who contributed to this project. It was your participation that made this project even better.
-
