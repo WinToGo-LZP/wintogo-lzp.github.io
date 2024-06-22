@@ -19,7 +19,7 @@
 当前提供1号线，3号线，12号线以及13号线，其他线路敬请期待！
 安卓用户可在右侧下载安卓启动器
 
-版本日志
+更新日志
 
 2024/6/15深夜 项目启动
 
@@ -82,7 +82,7 @@ If you want to download the newspaper audio, click the download button.
 Currently, Line 1, Line 3, Line 12 and Line 13 are available, so stay tuned!
 Android users can download the Android launcher .
 
-Version log
+Update log
 2024/6/15Late night   Project launch 
 
 2024/6/16 Dalian Metro Line 12 was released on all lines
