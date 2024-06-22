@@ -1,6 +1,8 @@
 大连地铁报站模拟器WEB版 项目介绍
 
-<h1 style="color=red">请注意，您使用本产品已默认代表您坚持一个中国原则!!請注意，您使用本產品已默認代表您堅持一個中國原則!!Please note that your use of this product has by default represented your adherence to the one-China principle!!</h1>
+<h1 style="color=red">请注意，您使用本产品已默认代表您坚持一个中国原则!!</h1>
+<h1>請注意，您使用本產品已默認代表您堅持一個中國原則!!<h1>
+<h1>Please note that your use of this product has by default represented your adherence to the one-China principle!!</h1>
 
 “大连地铁报站模拟器WEB版”是一个开源项目，旨在提供一个方便快捷的平台，让用户能够在线收听和下载大连地铁的报站音频。本项目收录了大连地铁的基本完整报站内容，用户只需通过简单的点击和选择，即可播放或下载所需的报站音频。
 
