@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="metro" content="A software to Simulator Dalian Metro Station">
     <title>大连地铁报站模拟器Web版</title>
+    <!--<script>
+        if (navigator.appName == 'Netscape')
+        var language = navigator.language;
+        else
+        var language = navigator.browserLanguage;
+            if (language.indexOf('en') > -1) document.location.href = 'en/index.html';
+        </script>-->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -57,6 +64,21 @@
         }
     </style>
 </head>
+
+
+<label style="color: black;for="station">语言</label>  
+<select id="language">  
+    <option value="cn">简体中文</option>
+    <option value="en">English</option>
+    </select>
+    <script>
+    document.getElementById("language").addEventListener("change", function() {
+    var selectedLanguage = this.value;
+    if (selectedLanguage === 'en') {
+        window.location.href = 'en/index.html';
+    }
+});
+    </script>
 <body>
     <h1>大连地铁报站模拟器Web版</h1>
     <h2>每日诗句推荐>w<</h2>
@@ -127,5 +149,6 @@
         <!-- 添加更多线路按钮时复制以上div并更改class为对应的线路颜色 -->
 
     </div>
+
 </body>
 </html>
