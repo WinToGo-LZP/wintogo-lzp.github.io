@@ -1,0 +1,253 @@
+<!DOCTYPE html>  
+<html lang="ru">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="metro" content="A software to Simulator Dalian Metro Station">  
+<title>Веб-версия симулятора станции метро Далянь</title>  
+</head>  
+<body>  
+    <link rel="stylesheet" type="css" href="style.css">
+
+<!--LED标题-->
+    <style>
+     /*marquee.zimu {font-family: "Tahoma", "Arial", "思源黑体 CN Regular", "方正悠黑简体", "Microsoft YaHei", "微软雅黑", "黑体", "宋体"; background: #000000;}*/
+     @font-face {
+  font-family: 'Fangzheng12';
+  src: url('fonts/Fangzheng12.ttf') format('truetype');
+}
+
+marquee.zimu {
+  font-family: 'Fangzheng12', "Arial", "Tahoma", "Microsoft YaHei", "微软雅黑", "黑体", "宋体";
+  background: #000000;
+}
+        </style>
+        <font size="7" color="#FF0000">
+        <marquee scrollamount="25" scrolldelay="20" class="zimu">欢迎使用大连地铁报站模拟器Web版！Welcome use Dalian Metro Station Simulator Web!</marquee>
+        </font>
+        
+        <button onclick="goBack()">Вернуться на главную страницу</button>
+<h1 style="color: white;">Линия метро Далянь 12🚇</h1>  
+<h3 style="color: greenyellow;">Лушунь Ньюпорт=Тишань=Лушунь=Тахэвань=Лонг Вантанг=Хуан Найчуань=Цай Далин=эстуарий(чтобы пересесть на линию 1)</h3>
+<p style="color: white;">Примечание: Из-за авторских прав газетной станции она была заменена новой версией газетной станции, а старая версия газетной станции будет официально приостановлена с 2024/6/22 13:40</p>
+<style>
+    body {
+        /*加载背景图：图片地址 不平铺 */
+        background: url(image/Line12.jpg) no-repeat;
+        /* 让背景图基于容器大小伸缩 */
+        background-size: 100% 100%;
+        background-attachment: fixed;
+        
+
+    }
+
+
+</style>
+
+
+
+
+<body background="image/Line12.jpg"></body>
+  
+<label style="color: white;for="direction">Направление:</label>  
+<select id="direction">  
+    <option value="Lvshun New Port">Лушунь Ньюпорт</option>  
+    <option value="Hekou">эстуарий</option>  
+</select>  
+  
+<label style="color: white;for="position">местоположение:</label>  
+<select id="position">  
+    <option value="next_station">Следующая остановка</option>  
+    <!--<option value="arriving_station">将到站</option> --> 
+    <option value="arrived_station">Прибыл</option>  
+</select>  
+  
+<label style="color: white;for="station">остановка:</label>  
+<select id="station">  
+    <option value="河口站">эстуарий</option>  
+    <option value="蔡大岭站">Цай Далин</option>
+    <option value="黄泥川站">Хуан Найчуань</option>    
+    <option value="龙王塘站">Лонг Вантанг</option>
+    <option value="塔河湾站">Тахэвань</option>
+    <option value="旅顺站">Лушунь</option>
+    <option value="铁山站">Тишань</option>
+    <option value="旅顺新港站">Лушунь Ньюпорт</option>  
+ 
+    <!-- 可以继续添加其他站名 -->  
+</select>  
+  
+<button id="playBtn">Начать играть▶︎</button>  
+<button id="stopBtn">Прекратить игру⏹</button>  
+<a <a style="color: white;" href ="https://cloud.189.cn/t/NfARNbu6niIr （访问码：yj3m）" download="">Получите аудио для загрузки газеты</a>
+  
+<audio id="audioPlayer" preload="auto" style="display:none;">  
+    <!-- 音频文件源会根据JavaScript动态设置 -->  
+</audio>  
+<h1 style="color: white;">Made By Bilibili </h1>
+<h1><a style="color: orange;" href ="https://space.bilibili.com/1283468503">@WinToGo-LZP</h1> 
+<h1><a style="color: orange;" href="https://space.bilibili.com/498607616">@Metro-老張114514</h1>
+    <h1><a style="color: red;" href="https://github.com/WinToGo-LZP/WinToGo-LZP.github.io/blob/main/LICENSE">Apache-2.0 license</h1>
+<!--<h3 style="color: orangered;">正在播放>>></h3> <h2 style="color: orange;">等待操作...</h2>-->
+
+
+
+  
+<script>  
+        function goBack() {
+    window.history.back();
+}
+
+    
+
+const audioPlayer = document.getElementById('audioPlayer');  
+const playBtn = document.getElementById('playBtn');  
+const stopBtn = document.getElementById('stopBtn');  
+  
+playBtn.addEventListener('click', function() {  
+    const direction = document.getElementById('direction').value;  
+    const position = document.getElementById('position').value;  
+    const station = document.getElementById('station').value;  
+  
+    let audioSrc = '';  
+//以下部分为错误报站
+    var titleElement = document.querySelector('h2');
+    var titleElement = document.querySelector('marquee');
+ 
+    if (direction === 'Hekou' && position === 'next_station' && station === '旅顺新港站') {
+        audioSrc = '../error.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">⚠播放出错，请不要选择起点站，请重新选择！</span>';
+        
+    
+
+    } else if (direction === 'Lvshun New Port' && position === 'next_station' && station === '河口站') {
+        audioSrc = '../error.mp3'; 
+        
+        titleElement.innerHTML = '<span style="color:red;">⚠播放出错，请不要选择起点站，请重新选择！</span>';
+    } else if (direction === 'Hekou' && position === 'arrived_station' && station === '旅顺新港站') {
+        audioSrc = '../error.mp3'; 
+        
+        titleElement.innerHTML = '<span style="color:red;">⚠播放出错，请不要选择起点站，请重新选择！</span>';
+    } else if (direction === 'Lvshun New Port' && position === 'arrived_station' && station === '河口站') {
+        audioSrc = '../error.mp3'; 
+        titleElement.innerHTML = '<span style="color:red;">⚠播放出错，请不要选择起点站，请重新选择！</span>';
+        
+    }
+//以上部分为错误报站
+//以下部分为河口方向的报站
+        
+    else if (direction === 'Hekou' && position === 'next_station' && station === '河口站') {  
+        audioSrc = '../audio12/Hekou/next/河口.MP3';  
+        titleElement.innerHTML = '<span style="color:red;">欢迎您乘坐大连地铁12号线，本次列车终点站河口站，下一站终点站河口。要下车的乘客请携带好随身物品准备下车。服务监督电话：968600 </span><span style="color:green;">Next stop is Hekou Station. </span>';
+    } else if (direction === 'Hekou' && position === 'arrived_station' && station === '河口站') {
+        audioSrc = '../audio12/Hekou/arrived/河口.MP3'; 
+        titleElement.innerHTML = '<span style="color:red;">终点站河口站到了，要下车的乘客请下车，下车时请注意站台与列车之间的间隙。 </span><span style="color:green;">We are now at the terminal Hekou Station. </span>';
+
+    }else if (direction === 'Hekou' && position === 'next_station' && station === '铁山站') {  
+        audioSrc = '../audio12/Hekou/next/铁山.MP3';  
+        titleElement.innerHTML = '<span style="color:red;">欢迎您乘坐大连地铁12号线，本次列车终点站河口站，下一站铁山站。要下车的乘客请携带好随身物品准备下车。服务监督电话：968600 </span><span style="color:green;">Next stop is Tieshan Station. </span>';
+    } else if (direction === 'Hekou' && position === 'arrived_station' && station === '铁山站') {
+        audioSrc = '../audio12/Hekou/arrived/铁山.MP3'; 
+        titleElement.innerHTML = '<span style="color:red;">铁山站到了，要下车的乘客请下车，下车时请注意站台与列车之间的间隙。 </span><span style="color:green;">We are now at Tieshan Station. </span>';
+   
+    }else if (direction === 'Hekou' && position === 'next_station' && station === '旅顺站') {  
+        audioSrc = '../audio12/Hekou/next/旅顺.MP3';  
+        titleElement.innerHTML = '<span style="color:red;">欢迎您乘坐大连地铁12号线，本次列车终点站河口站，下一站旅顺站。要下车的乘客请携带好随身物品准备下车。服务监督电话：968600 </span><span style="color:green;">Next stop is Lvshun Station. </span>';
+    } else if (direction === 'Hekou' && position === 'arrived_station' && station === '旅顺站') {
+        audioSrc = '../audio12/Hekou/arrived/旅顺.MP3'; 
+        titleElement.innerHTML = '<span style="color:red;">旅顺站到了，要下车的乘客请下车，下车时请注意站台与列车之间的间隙。 </span><span style="color:green;">We are now at Lvshun Station. </span>';
+
+    }else if (direction === 'Hekou' && position === 'next_station' && station === '塔河湾站') {  
+        audioSrc = '../audio12/Hekou/next/塔河湾.MP3';  
+        titleElement.innerHTML = '<span style="color:red;">欢迎您乘坐大连地铁12号线，本次列车终点站河口站，下一站塔河湾站。要下车的乘客请携带好随身物品准备下车。服务监督电话：968600</span><span style="color:green;">Next stop is Tahewan Station. </span>';
+    } else if (direction === 'Hekou' && position === 'arrived_station' && station === '塔河湾站') {
+        audioSrc = '../audio12/Hekou/arrived/塔河湾.MP3'; 
+        titleElement.innerHTML = '<span style="color:red;">塔河湾站到了，要下车的乘客请下车，下车时请注意站台与列车之间的间隙。</span><span style="color:green;">We are now at Tahewan Station. </span>';
+
+    }else if (direction === 'Hekou' && position === 'next_station' && station === '龙王塘站') {  
+        audioSrc = '../audio12/Hekou/next/龙王塘.MP3';  
+        titleElement.innerHTML = '<span style="color:red;">欢迎您乘坐大连地铁12号线，本次列车终点站河口站，下一站龙王塘站。要下车的乘客请携带好随身物品准备下车。服务监督电话：968600 </span><span style="color:green;">Next stop is Longwangtang Station. </span>';
+    } else if (direction === 'Hekou' && position === 'arrived_station' && station === '龙王塘站') {
+        audioSrc = '../audio12/Hekou/arrived/龙王塘.MP3'; 
+        titleElement.innerHTML = '<span style="color:red;">龙王塘站到了，要下车的乘客请下车，下车时请注意站台与列车之间的间隙。 </span><span style="color:green;">We are now at Longwangtang Station. </span>';
+
+    }else if (direction === 'Hekou' && position === 'next_station' && station === '黄泥川站') {  
+        audioSrc = '../audio12/Hekou/next/黄泥川.MP3';  
+        titleElement.innerHTML = '<span style="color:red;">欢迎您乘坐大连地铁12号线，本次列车终点站河口站，下一站黄泥川站。要下车的乘客请携带好随身物品准备下车。服务监督电话：968600 </span><span style="color:green;">Next stop is Huangnichuan Station. </span>';
+    } else if (direction === 'Hekou' && position === 'arrived_station' && station === '黄泥川站') {
+        audioSrc = '../audio12/Hekou/arrived/黄泥川.MP3'; 
+        titleElement.innerHTML = '<span style="color:red;">黄泥川站到了，要下车的乘客请下车，下车时请注意站台与列车之间的间隙。</span><span style="color:green;">We are now at Huangnichuan Station.</span>';
+
+    }else if (direction === 'Hekou' && position === 'next_station' && station === '蔡大岭站') {  
+        audioSrc = '../audio12/Hekou/next/蔡大岭.MP3';  
+        titleElement.innerHTML = '<span style="color:red;">欢迎您乘坐大连地铁12号线，本次列车终点站河口站，下一站蔡大岭站。要下车的乘客请携带好随身物品准备下车。服务监督电话：968600 </span><span style="color:green;">Next stop is Caidaling Station. </span>';
+    } else if (direction === 'Hekou' && position === 'arrived_station' && station === '蔡大岭站') {
+        audioSrc = '../audio12/Hekou/arrived/蔡大岭.MP3'; 
+        titleElement.innerHTML = '<span style="color:red;">蔡大岭站到了，要下车的乘客请下车，下车时请注意站台与列车之间的间隙。 </span><span style="color:green;">We are now at Caidaling Station. </span>';
+
+    } 
+    //以下为旅顺新港方向的报站
+    else if (direction === 'Lvshun New Port' && position === 'next_station' && station === '旅顺新港站') {  
+        audioSrc = '../audio12/Lvshun/next/旅顺新港.MP3';  
+        titleElement.innerHTML = '<span style="color:red;">欢迎您乘坐大连地铁12号线，本次列车终点站旅顺新港站，下一站终点站旅顺新港。要下车的乘客请携带好随身物品准备下车。服务监督电话：968600 </span><span style="color:green;">Next stop is Lvshun New Port Station. </span>';
+    } else if (direction === 'Lvshun New Port' && position === 'arrived_station' && station === '旅顺新港站') {
+        audioSrc = '../audio12/Lvshun/arrived/旅顺新港.MP3'; 
+        titleElement.innerHTML = '<span style="color:red;">终点站旅顺新港站到了，要下车的乘客请下车，下车时请注意站台与列车之间的间隙。 </span><span style="color:green;">We are now at the terminal Lvshun New Port Station. </span>';
+
+    }else if (direction === 'Lvshun New Port' && position === 'next_station' && station === '铁山站') {  
+        audioSrc = '../audio12/Lvshun/next/铁山.MP3';  
+        titleElement.innerHTML = '<span style="color:red;">欢迎您乘坐大连地铁12号线，本次列车终点站旅顺新港站，下一站铁山站。要下车的乘客请携带好随身物品准备下车。服务监督电话：968600 </span><span style="color:green;">Next stop is Tieshan Station. </span>';
+    } else if (direction === 'Lvshun New Port' && position === 'arrived_station' && station === '铁山站') {
+        audioSrc = '../audio12/Lvshun/arrived/铁山.MP3'; 
+        titleElement.innerHTML = '<span style="color:red;">铁山站到了，要下车的乘客请下车，下车时请注意站台与列车之间的间隙。 </span><span style="color:green;">We are now at Tieshan Station. </span>';
+   
+    }else if (direction === 'Lvshun New Port' && position === 'next_station' && station === '旅顺站') {  
+        audioSrc = '../audio12/Lvshun/next/旅顺.MP3';  
+        titleElement.innerHTML = '<span style="color:red;">欢迎您乘坐大连地铁12号线，本次列车终点站旅顺新港站，下一站旅顺站。要下车的乘客请携带好随身物品准备下车。服务监督电话：968600 </span><span style="color:green;">Next stop is Lvshun Station. </span>';
+    } else if (direction === 'Lvshun New Port' && position === 'arrived_station' && station === '旅顺站') {
+        audioSrc = '../audio12/Lvshun/arrived/旅顺.MP3'; 
+        titleElement.innerHTML = '<span style="color:red;">旅顺站到了，要下车的乘客请下车，下车时请注意站台与列车之间的间隙。 </span><span style="color:green;">We are now at Lvshun Station. </span>';
+
+    }else if (direction === 'Lvshun New Port' && position === 'next_station' && station === '塔河湾站') {  
+        audioSrc = '../audio12/Lvshun/next/塔河湾.MP3';  
+        titleElement.innerHTML = '<span style="color:red;">欢迎您乘坐大连地铁12号线，本次列车终点站旅顺新港站，下一站塔河湾站。要下车的乘客请携带好随身物品准备下车。服务监督电话：968600</span><span style="color:green;">Next stop is Tahewan Station. </span>';
+    } else if (direction === 'Lvshun New Port' && position === 'arrived_station' && station === '塔河湾站') {
+        audioSrc = '../audio12/Lvshun/arrived/塔河湾.MP3'; 
+        titleElement.innerHTML = '<span style="color:red;">塔河湾站到了，要下车的乘客请下车，下车时请注意站台与列车之间的间隙。</span><span style="color:green;">We are now at Tahewan Station. </span>';
+
+    }else if (direction === 'Lvshun New Port' && position === 'next_station' && station === '龙王塘站') {  
+        audioSrc = '../audio12/Lvshun/next/龙王塘.MP3';  
+        titleElement.innerHTML = '<span style="color:red;">欢迎您乘坐大连地铁12号线，本次列车终点站旅顺新港站，下一站龙王塘站。要下车的乘客请携带好随身物品准备下车。服务监督电话：968600 </span><span style="color:green;">Next stop is Longwangtang Station. </span>';
+    } else if (direction === 'Lvshun New Port' && position === 'arrived_station' && station === '龙王塘站') {
+        audioSrc = '../audio12/Lvshun/arrived/龙王塘.MP3'; 
+        titleElement.innerHTML = '<span style="color:red;">龙王塘站到了，要下车的乘客请下车，下车时请注意站台与列车之间的间隙。 </span><span style="color:green;">We are now at Longwangtang Station. </span>';
+
+    }else if (direction === 'Lvshun New Port' && position === 'next_station' && station === '黄泥川站') {  
+        audioSrc = '../audio12/Lvshun/next/黄泥川.MP3';  
+        titleElement.innerHTML = '<span style="color:red;">欢迎您乘坐大连地铁12号线，本次列车终点站旅顺新港站，下一站黄泥川站。要下车的乘客请携带好随身物品准备下车。服务监督电话：968600 </span><span style="color:green;">Next stop is Huangnichuan Station. </span>';
+    } else if (direction === 'Lvshun New Port' && position === 'arrived_station' && station === '黄泥川站') {
+        audioSrc = '../audio12/Lvshun/arrived/黄泥川.MP3'; 
+        titleElement.innerHTML = '<span style="color:red;">黄泥川站到了，要下车的乘客请下车，下车时请注意站台与列车之间的间隙。</span><span style="color:green;">We are now at Huangnichuan Station.</span>';
+
+    }else if (direction === 'Lvshun New Port' && position === 'next_station' && station === '蔡大岭站') {  
+        audioSrc = '../audio12/Lvshun/next/蔡大岭.MP3';  
+        titleElement.innerHTML = '<span style="color:red;">欢迎您乘坐大连地铁12号线，本次列车终点站旅顺新港站，下一站蔡大岭站。要下车的乘客请携带好随身物品准备下车。服务监督电话：968600 </span><span style="color:green;">Next stop is Caidaling Station. </span>';
+    } else if (direction === 'Lvshun New Port' && position === 'arrived_station' && station === '蔡大岭站') {
+        audioSrc = '../audio12/Lvshun/arrived/蔡大岭.MP3'; 
+        titleElement.innerHTML = '<span style="color:red;">蔡大岭站到了，要下车的乘客请下车，下车时请注意站台与列车之间的间隙。 </span><span style="color:green;">We are now at Caidaling Station. </span>';
+
+    }
+      
+    // 设置音频源并播放  
+    if (audioSrc) {  
+        audioPlayer.src = audioSrc;  
+        audioPlayer.play();  
+    }  
+});  
+  
+stopBtn.addEventListener('click', function() {  
+    audioPlayer.pause();  
+    audioPlayer.currentTime = 0; // 重置到音频开始位置  
+});  
+</script>  
+  
+</body>  
+</html>

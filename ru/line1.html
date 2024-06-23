@@ -1,9 +1,9 @@
 <!DOCTYPE html>  
-<html lang="ja">  
+<html lang="ru">  
 <head>  
 <meta charset="UTF-8">  
 <meta name="metro" content="A software to Simulator Dalian Metro Station">  
-<title>大連地下鉄報駅シミュレータWeb版</title>  
+<title>Веб-версия симулятора станции метро Далянь</title>  
 </head>  
 <body>  
     <link rel="stylesheet" type="css" href="style.css">
@@ -22,13 +22,13 @@ marquee.zimu {
 }
         </style>
         <font size="7" color="#FF0000">
-        <marquee scrollamount="25" scrolldelay="20" class="zimu"white-space: pre-line><span style="color:red;">欢迎使用大连地铁报站模拟器Web版!</span><span style="color:green;">Welcome use Dalian Metro Station Simulator Web!</span></marquee>
+        <marquee scrollamount="25" scrolldelay="20" class="zimu"white-space: pre-line><span style="color:red;">欢迎使用大连地铁报站模拟器Web版！</span><span style="color:green;">Welcome use Dalian Metro Station Simulator Web!</span></marquee>
         </font>
         
-        <button onclick="goBack()">ホームページに戻る</button>
-        <h1 style="color: white;">大连地下鉄1号线🚇</h1>
+        <button onclick="goBack()">Вернуться на главную страницу</button>
+<h1 style="color: white;">Линия метро Далянь 1🚇</h1>  
 
-<h3 style="color: #07c700;">河口(12号線乗り換え)=七賢嶺=海事大学=学苑広場=黒石礁=大医二院=星海広場=コンベンションセンター=富国街=西安路(2号線乗り換え)=興工街=中長街=香工街=春柳=東緯路=松江路=千山路=華南広場=華南北路=華北路=大連北駅(2号線乗り換え)=姚家</h3>
+<h3 style="color: #07c700;">Хэкоу(пересадка на линию 12)=Цисяньлин=Морской университет=Площадь Сюэюань=Хэйшицзяо=Вторая больница филиала Даляньского медицинского университета=Площадь Синхай=Выставочный и конференц-центр=Улица Фуго=Сиань Роуд(пересадка на Линию 2)=Улица Сингун=Улица Чжунчан=Улица Сянгун=Чуньлю=Дунвэй Роуд=Сунцзян Роуд=Цяньшань Роуд=Южно-Китайская площадь=Южный Китай Север=Северный Китай Роуд=Северный вокзал Далянь(пересадка на Линию 2)=Яоцзя</h3>
 
 <style>
     body {
@@ -58,52 +58,52 @@ marquee.zimu {
 
 <body background="image/Line1.jpg"></body>
   
-<label style="color: white;for="direction">方向:</label>  
+<label style="color: white;for="direction">направление</label>  
 <select id="direction">  
-    <option value="Yaojia">姚家</option>  
-  <option value="Hekou">河口</option>  
+    <option value="Yaojia">Яоцзя</option>  
+  <option value="Hekou">Хэкоу</option>  
 </select> 
   
-<label style="color: white;for="position">位置:</label>  
+<label style="color: white;for="position">местоположение</label>  
 <select id="position">  
-    <option value="next_station">次の駅</option>  
-    <option value="arriving_station">着弾駅</option>  
-    <option value="arrived_station">到着駅</option>  
+    <option value="next_station">Следующая остановка</option>  
+    <option value="arriving_station">прибудет на станцию</option>  
+    <option value="arrived_station">Прибыл</option>  
 </select>  
   
-<label style="color: white;for="station">駅名:</label>  
+<label style="color: white;for="station">остановка</label>  
 <select id="station">  
-    <option value="河口">河口</option>  
-    <option value="七贤岭">七賢嶺</option>  
-    <option value="海事大学">海事大学</option>   
-    <option value="学苑广场">学苑広場</option>  
-    <option value="黑石礁">黒石礁</option>  
-    <option value="大医二院">大医二院</option>  
-    <option value="星海广场">星海広場</option>  
-    <option value="会展中心">コンベンションセンター</option>  
-    <option value="富国街">富国街</option>  
-    <option value="西安路">西安路</option>  
-    <option value="兴工街">興工街</option>  
-    <option value="中长街">中長街</option>  
-    <option value="香工街">香工街</option>  
-    <option value="春柳">春柳</option>  
-    <option value="东纬路">東緯路</option>  
-    <option value="松江路">松江路</option>  
-    <option value="千山路">千山路</option>  
-    <option value="华南广场">華南広場</option>  
-    <option value="华南北">華南北</option>  
-    <option value="华北路">華北路</option>  
-    <option value="大连北站">大連北駅</option>  
-    <option value="姚家">姚家</option>
+        <option value="河口">Хэкоу</option>  
+        <option value="七贤岭">Цисяньлин</option>
+        <option value="海事大学">Морской университет</option> 
+        <option value="学苑广场">Площадь Сюэюань</option>
+        <option value="黑石礁">Хэйшицзяо</option>
+        <option value="大医二院">Вторая больница филиала Даляньского медицинского университета</option>
+        <option value="星海广场">Площадь Синхай</option>
+        <option value="会展中心">Выставочный и конференц-центр</option>
+        <option value="富国街">Улица Фуго</option>
+        <option value="西安路">Сиань Роуд</option>
+        <option value="兴工街">Улица Сингун</option>
+        <option value="中长街">Улица Чжунчан</option>
+        <option value="香工街">Улица Сянгун</option>
+        <option value="春柳">Чуньлю</option>
+        <option value="东纬路">Дунвэй Роуд</option>
+        <option value="松江路">Сунцзян Роуд</option>
+        <option value="千山路">Цяньшань Роуд</option>
+        <option value="华南广场">Южно-Китайская площадь</option>
+        <option value="华南北">Южный Китай Север</option>
+        <option value="华北路">Северный Китай Роуд</option>
+        <option value="大连北站">Северный вокзал Далянь</option>
+        <option value="姚家">Яоцзя</option>
              
 
 
     <!-- 可以继续添加其他站名 -->  
 </select>  
 
-<button id="playBtn">再生開始▶︎</button>  
-<button id="stopBtn">再生停止⏹</button>  
-<a <a style="color: white;" href ="https://cloud.189.cn/t/uAVfqqjmeqQz （访问码：4ngt）" download="">報站音声をダウンロードする</a>
+<button id="playBtn">Начать играть▶︎</button>  
+<button id="stopBtn">Прекратить игру⏹</button>  
+<a <a style="color: white;" href ="https://cloud.189.cn/t/uAVfqqjmeqQz （访问码：4ngt）" download="">Получите аудио для загрузки газеты</a>
 <!--<h2 style="color: pink;">重要通知：河口方向暂未制作，所以报站下载和聆听暂时不可用！</h2>   -->
 <audio id="audioPlayer" preload="auto" style="display:none;">  
     <!-- 音频文件源会根据JavaScript动态设置 -->  

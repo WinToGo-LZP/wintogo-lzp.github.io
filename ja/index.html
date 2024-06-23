@@ -66,12 +66,14 @@
 </head>
 
 
-<label style="color: black;for="station">言語</label>  
+<label style="color: black;for="station">语言Lang</label>  
 <select id="language">  
     <option value="ja">日本語</option>
     <option value="cn">简体中文</option>
     <option value="tw">繁體中文</option>
+    <option value="ru">Русский</option>
     <option value="en">English</option>
+    <option value="ko">한국어</option>
     </select>
     <script>
     document.getElementById("language").addEventListener("change", function() {
@@ -85,13 +87,17 @@
     else if (selectedLanguage === 'cn') {
             window.location.href = '../index.html';
     }
+    else if (selectedLanguage === 'ko') {
+            window.location.href = '../ko/index.html';
+    }
+        else if (selectedLanguage === 'ru') {
+            window.location.href = '../ru/index.html';
+        }
 });
     </script>
 <body>
     <h1>大连地下鉄駅案内シミュレーターWeb版</h1>
-    <h2 style="color:red">请注意，本制品の利用は、あなたが一つの中国原則を堅持し、日本の対華戦争および731関連事件を認めることを代表しています！！！
-    </h2>
-    <p style="color:red">请注意，您使用本产品已默认代表您坚持一个中国原则,并承认日本侵华战争以及731相关事件!!!</p>
+
    
 
     <h2>上下滑动查看线路</h2>

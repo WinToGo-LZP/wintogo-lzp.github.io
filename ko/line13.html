@@ -1,9 +1,9 @@
 <!DOCTYPE html>  
-<html lang="ja">  
+<html lang="ko">  
 <head>  
 <meta charset="UTF-8">  
 <meta name="metro" content="A software to Simulator Dalian Metro Station">  
-<title>大連地下鉄報駅シミュレータWeb版</title>  
+<title>다롄 지하철역 시뮬레이터 웹 버전</title>  
 </head>  
 <body>  
     <link rel="stylesheet" type="css" href="style.css">
@@ -25,10 +25,10 @@ marquee.zimu {
         <marquee scrollamount="25" scrolldelay="20" class="zimu">欢迎使用大连地铁报站模拟器Web版！Welcome use Dalian Metro Station Simulator Web!</marquee>
         </font>
         
-        <button onclick="goBack()">ホームページに戻る</button>
-<h1 style="color: greenyellow;">大連地下鉄3号線支線+13号線 🚇</h1>  
-<h3 style="color: yellow;">13号線=>普蘭店振興街=普蘭店開発区=海湾高校=大医三院=長店堡=石河北海=普湾体育场=石河黄旗=三十里堡=二十里堡=十三里=九里</h3>
-<h3 style="color: rgb(255, 0, 76);">3号線支線=>九里=十九局=和平路=東山路=鸿玮澜山=通世泰=開発区（3号線乗り換え）</h3>
+        <button onclick="goBack()">홈페이지로 돌아가기</button>
+<h1 style="color: greenyellow;">다롄 지하철 3호선 지선 + 13호선🚇</h1>  
+<h3 style="color: yellow;">13호선=>푸란단진성가=프랜차구역=걸프고=대의3원=롱텀벙커=스허베이하이=푸완스타디움=스허황기=삼십리보=이십리보=십삼리=구리</h3>
+<h3 style="color: rgb(255, 0, 76);">3호선지선=>구리=19국=평화로=동산로=홍위란산=통세태=개발 영역(3호선으로 환승)</h3>
 
 
 <style>
@@ -53,48 +53,44 @@ marquee.zimu {
 
 <body background="image/line13.jpg"></body>
   
-<label style="color: white;for="direction">方向:</label>  
-<select id="direction">  
-    <option value="Pulandian">普蘭店振興街</option>  
-    <option value="Kaifaqu">開発区</option>  
-</select>  
-  
-<label style="color: white;for="position">位置:</label>  
-<select id="position">  
-    <option value="next_station">次の駅</option>  
-    <option value="arriving_station">着弾駅</option>  
-    <option value="arrived_station">到着駅</option> 
-</select>  
-  
-<label style="color: white;for="station">駅名:</label>  
-<select id="station">  
-    <option value="开发区">開発区</option>  
-    <option value="通世泰">通世泰</option>  
-    <option value="鸿玮澜山">鸿玮澜山</option>  
-    <option value="东山路">東山路</option>  
-    <option value="和平路">和平路</option>  
-    <option value="十九局">十九局</option>  
-    <option value="九里">九里</option>  
-    <option value="十三里">十三里</option>  
-    <option value="二十里堡">二十里堡</option>  
-    <option value="三十里堡">三十里堡</option>  
-    <option value="石河黄旗">石河黄旗</option>  
-    <option value="普湾体育场">普湾体育場</option>  
-    <option value="石河北海">石河北海</option>  
-    <option value="长店堡">長店堡</option>  
-    <option value="大医三院">大医三院</option>  
-    <option value="海湾高中">海湾高校</option>  
-    <option value="普兰店开发区">普蘭店開発区</option>  
-    <option value="普兰店振兴街">普蘭店振興街</option>
+<label style="color: white;" for="direction">방향:</label>
+<select id="direction">
+    <option value="Pulandian">푸란단진성가</option>
+    <option value="Kaifaqu"> 개발 영역</option>
+</select>
 
-
-
-    <!-- 可以继续添加其他站名 -->  
-</select>  
+<label style="color: white;" for="position">위치:</label>
+<select id="position">
+    <option value="next_station">다음 역</option>
+    <option value="arriving_station">도착 예정 역</option>
+    <option value="arrived_station">도착한 역</option>
+</select>
   
-<button id="playBtn">再生開始▶︎</button>  
-<button id="stopBtn">再生停止⏹</button>  
-<a <a style="color: white;" href ="https://cloud.189.cn/t/6vuMbafauErm （访问码：9bjj）" download="">報站音声をダウンロードする</a>
+<label style="color: white;" for="station">역명:</label>
+<select id="station">
+    <option value="开发区">개발 영역</option>
+    <option value="通世泰">통세태</option>
+    <option value="鸿玮澜山">홍웨이란산</option>
+    <option value="东山路">동산로</option>
+    <option value="和平路">화평로</option>
+    <option value="十九局">십구지구</option>
+    <option value="九里">구리</option>
+    <option value="十三里">십삼리</option>
+    <option value="二十里堡">이십리포</option>
+    <option value="三十里堡">삼십리포</option>
+    <option value="石河黄旗">석하황기</option>
+    <option value="普湾体育场">보우안 체육장</option>
+    <option value="石河北海">석하북해</option>
+    <option value="长店堡">장垫보</option>
+    <option value="大医三院">대의삼원</option>
+    <option value="海湾高中">만베이고등학교</option>
+    <option value="普兰店开发区">푸란단구역</option>
+    <option value="普兰店振兴街">푸란단진성가</option>
+</select> 
+  
+<button id="playBtn">게임을 시작하세요▶︎</button>  
+<button id="stopBtn">그만 놀기⏹</button>  
+<a <a style="color: white;" href ="https://cloud.189.cn/t/6vuMbafauErm （访问码：9bjj）" download="">오디오를 받아 신문을 다운로드하세요.</a>
   
 <audio id="audioPlayer" preload="auto" style="display:none;">  
     <!-- 音频文件源会根据JavaScript动态设置 -->  

@@ -1,9 +1,9 @@
 <!DOCTYPE html>  
-<html lang="ja">  
+<html lang="ko">  
 <head>  
 <meta charset="UTF-8">  
 <meta name="metro" content="A software to Simulator Dalian Metro Station">  
-<title>大連地下鉄報駅シミュレータWeb版</title>  
+<title>다롄 지하철역 시뮬레이터 웹 버전</title>  
 </head>  
 <body>  
     <link rel="stylesheet" type="css" href="style.css">
@@ -22,13 +22,13 @@ marquee.zimu {
 }
         </style>
         <font size="7" color="#FF0000">
-        <marquee scrollamount="25" scrolldelay="20" class="zimu"white-space: pre-line><span style="color:red;">欢迎使用大连地铁报站模拟器Web版!</span><span style="color:green;">Welcome use Dalian Metro Station Simulator Web!</span></marquee>
+        <marquee scrollamount="25" scrolldelay="20" class="zimu"white-space: pre-line><span style="color:red;">欢迎使用大连地铁报站模拟器Web版！</span><span style="color:green;">Welcome use Dalian Metro Station Simulator Web!</span></marquee>
         </font>
         
-        <button onclick="goBack()">ホームページに戻る</button>
-        <h1 style="color: white;">大连地下鉄1号线🚇</h1>
+        <button onclick="goBack()">홈페이지로 돌아가기</button>
+<h1 style="color: white;">다롄 지하철 1호선 🚇</h1>  
 
-<h3 style="color: #07c700;">河口(12号線乗り換え)=七賢嶺=海事大学=学苑広場=黒石礁=大医二院=星海広場=コンベンションセンター=富国街=西安路(2号線乗り換え)=興工街=中長街=香工街=春柳=東緯路=松江路=千山路=華南広場=華南北路=華北路=大連北駅(2号線乗り換え)=姚家</h3>
+<h3 style="color: #07c700;">하구(환승 12호선)=칠현령=다롄해양대학교=학원광장=흑석초=대의2원=성해광장=벡스코=부국거리=서안로(환승 2호선)=흥공거리=중장거리=향공거리=춘류=동위로=송강로=천산로=화남광장=화남북=다롄 북부 기차역(환승 2호선)=야오의 가족</h3>
 
 <style>
     body {
@@ -58,52 +58,52 @@ marquee.zimu {
 
 <body background="image/Line1.jpg"></body>
   
-<label style="color: white;for="direction">方向:</label>  
-<select id="direction">  
-    <option value="Yaojia">姚家</option>  
-  <option value="Hekou">河口</option>  
-</select> 
-  
-<label style="color: white;for="position">位置:</label>  
-<select id="position">  
-    <option value="next_station">次の駅</option>  
-    <option value="arriving_station">着弾駅</option>  
-    <option value="arrived_station">到着駅</option>  
-</select>  
-  
-<label style="color: white;for="station">駅名:</label>  
-<select id="station">  
-    <option value="河口">河口</option>  
-    <option value="七贤岭">七賢嶺</option>  
-    <option value="海事大学">海事大学</option>   
-    <option value="学苑广场">学苑広場</option>  
-    <option value="黑石礁">黒石礁</option>  
-    <option value="大医二院">大医二院</option>  
-    <option value="星海广场">星海広場</option>  
-    <option value="会展中心">コンベンションセンター</option>  
-    <option value="富国街">富国街</option>  
-    <option value="西安路">西安路</option>  
-    <option value="兴工街">興工街</option>  
-    <option value="中长街">中長街</option>  
-    <option value="香工街">香工街</option>  
-    <option value="春柳">春柳</option>  
-    <option value="东纬路">東緯路</option>  
-    <option value="松江路">松江路</option>  
-    <option value="千山路">千山路</option>  
-    <option value="华南广场">華南広場</option>  
-    <option value="华南北">華南北</option>  
-    <option value="华北路">華北路</option>  
-    <option value="大连北站">大連北駅</option>  
-    <option value="姚家">姚家</option>
+<label style="color: white;" for="direction">방향:</label>
+<select id="direction">
+    <option value="Yaojia">야오의 가족</option>
+    <option value="Hekou">하구</option>
+</select>
+
+<label style="color: white;" for="position">위치:</label>
+<select id="position">
+    <option value="next_station">다음 역</option>
+    <option value="arriving_station">도착 예정 역</option>
+    <option value="arrived_station">도착한 역</option>
+</select>
+
+<label style="color: white;" for="station">역명:</label>
+<select id="station">
+    <option value="河口">하구</option>  
+    <option value="七贤岭">칠현령</option>
+    <option value="海事大学">다롄해양대학교</option> 
+    <option value="学苑广场">학원광장</option>
+    <option value="黑石礁">칠흑 암초</option>
+    <option value="大医二院">대의2원</option>
+    <option value="星海广场">성해광장</option>
+    <option value="会展中心">전시중심</option>
+    <option value="富国街">부국가</option>
+    <option value="西安路">서안로</option>
+    <option value="兴工街">흥공가</option>
+    <option value="中长街">중장가</option>
+    <option value="香工街">향공가</option>
+    <option value="春柳">춘류</option>
+    <option value="东纬路">동위로</option>
+    <option value="松江路">송강로</option>
+    <option value="千山路">천산로</option>
+    <option value="华南广场">남화광장</option>
+    <option value="华南北">화북</option>
+    <option value="华北路">북화로</option>
+    <option value="大连北站">대련북역</option>
+    <option value="姚家">야오의 가족</option>
              
 
 
     <!-- 可以继续添加其他站名 -->  
 </select>  
 
-<button id="playBtn">再生開始▶︎</button>  
-<button id="stopBtn">再生停止⏹</button>  
-<a <a style="color: white;" href ="https://cloud.189.cn/t/uAVfqqjmeqQz （访问码：4ngt）" download="">報站音声をダウンロードする</a>
+<button id="playBtn">게임을 시작하세요▶︎</button>  
+<button id="stopBtn">그만 놀기⏹</button>  
+<a <a style="color: white;" href ="https://cloud.189.cn/t/uAVfqqjmeqQz （访问码：4ngt）" download="">오디오를 받아 신문을 다운로드하세요.</a>
 <!--<h2 style="color: pink;">重要通知：河口方向暂未制作，所以报站下载和聆听暂时不可用！</h2>   -->
 <audio id="audioPlayer" preload="auto" style="display:none;">  
     <!-- 音频文件源会根据JavaScript动态设置 -->  

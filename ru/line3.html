@@ -1,9 +1,9 @@
 <!DOCTYPE html>  
-<html lang="tw">  
+<html lang="ru">  
 <head>  
 <meta charset="UTF-8">  
 <meta name="metro" content="A software to Simulator Dalian Metro Station">  
-<title>大連地鐵報站模擬器Web版</title>  
+<title>Веб-версия симулятора станции метро Далянь</title>  
 </head>  
 <body>  
     <link rel="stylesheet" type="css" href="style.css">
@@ -25,9 +25,9 @@ marquee.zimu {
         <marquee scrollamount="25" scrolldelay="20" class="zimu">欢迎使用大连地铁报站模拟器Web版！Welcome use Dalian Metro Station Simulator Web!</marquee>
         </font>
         
-        <button onclick="goBack()">返回主页</button>
-<h1 style="color: white;">大連地鐵3號綫🚇</h1>  
-<h3 style="color: blue;">金石灘==小窯灣==雙D港==保稅區==開發區(換乘3支/13號綫)==金馬路→地鐵海灣基地→大連灣==后鹽(换乘5號綫)==泉水==金家街==香爐礁==大連站(换乘5號綫)</h3>
+        <button onclick="goBack()">Вернуться на главную страницу</button>
+<h1 style="color: white;">Линия метро Далянь 3🚇</h1>  
+<h3 style="color: blue;">Пляж Цзиньшитань=Залив Сяояо=Двойной порт D=Зона свободной торговли=Зона развития(пересадка на 3 ветки/линию 13)=Дзинма Роуд→Метро Бэй Бейс→Даляньский залив=Хоуянь(пересадка на линию 5)=Родниковая вода=Улица Цзиньцзя=Риф Сянглу=Станция Далянь(пересадка на линию 5)</h3>
 <style>
     body {
         /*加载背景图：图片地址 不平铺 */
@@ -47,41 +47,41 @@ marquee.zimu {
 
 <body background="image/Line3.jpg"></body>
   
-<label style="color: white;for="direction">方向:</label>  
+<label style="color: white;for="direction">направление</label>  
 <select id="direction">  
-    <option value="Jinshitan">金石灘</option>  
-    <option value="Dalianzhan">大連站</option>  
+    <option value="Jinshitan">Пляж Цзиньшитань</option>  
+    <option value="Dalianzhan">Станция Далянь</option>  
 </select>  
   
-<label style="color: white;for="position">位置:</label>  
+<label style="color: white;for="position">местоположение</label>  
 <select id="position">  
-    <option value="next_station">下一站</option>  
-    <option value="arriving_station">將到站</option>  
-    <option value="arrived_station">已到站</option>  
+    <option value="next_station">Следующая остановка</option>  
+    <option value="arriving_station">прибудет на станцию</option>  
+    <option value="arrived_station">Прибыл</option>  
 </select>  
   
-<label style="color: white;for="station">站名:</label>  
+<label style="color: white;for="station">остановка</label>  
 <select id="station">  
-    <option value="大连站">大連站</option>  
-    <option value="香炉礁">香爐礁站</option>
-    <option value="金家街">金家街站</option>    
-    <option value="泉水">泉水站</option>
-    <option value="后盐">后鹽站</option>
-    <option value="大连湾">大連灣站</option>
-    <option value="地铁海湾基地">地鐵海灣基地站</option>
-    <option value="金马路">金馬路站</option>  
-    <option value="开发区">開發區站</option>  
-    <option value="保税区">保稅區站</option>
-    <option value="双D港">雙D港站</option>    
-    <option value="小窑湾">小窯灣站</option>
-    <option value="金石滩">金石灘站</option>
+    <option value="大连站">Станция Далянь</option>  
+    <option value="香炉礁">Риф Сянглу</option>
+    <option value="金家街">Улица Цзиньцзя</option>    
+    <option value="泉水">Родниковая вода</option>
+    <option value="后盐">Хоуянь</option>
+    <option value="大连湾">Даляньский залив</option>
+    <option value="地铁海湾基地">Метро Бэй Бейс</option>
+    <option value="金马路">Дзинма Роуд</option>  
+    <option value="开发区">Зона развития</option>  
+    <option value="保税区">Зона свободной торговли</option>
+    <option value="双D港">Двойной порт D</option>    
+    <option value="小窑湾">Залив Сяояо</option>
+    <option value="金石滩">Пляж Цзиньшитань</option>
 
     <!-- 可以继续添加其他站名 -->  
 </select>  
   
-<button id="playBtn">開始播放▶︎</button>  
-<button id="stopBtn">停止播放⏹</button>  
-<a <a style="color: white;" href ="https://cloud.189.cn/t/MruyiureYzYb （访问码：paa0）" download="">獲取下載報站音頻</a>
+<button id="playBtn">Начать играть▶︎</button>  
+<button id="stopBtn">Прекратить игру⏹</button>  
+<a <a style="color: white;" href ="https://cloud.189.cn/t/MruyiureYzYb （访问码：paa0）" download="">Получите аудио для загрузки газеты</a>
   
 <audio id="audioPlayer" preload="auto" style="display:none;">  
     <!-- 音频文件源会根据JavaScript动态设置 -->  

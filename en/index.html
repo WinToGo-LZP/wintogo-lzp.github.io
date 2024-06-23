@@ -57,12 +57,14 @@
         }
     </style>
 </head>
-<label style="color: black;for="station">language</label>  
+<label style="color: black;for="station">语言Lang</label>  
 <select id="language">  
     <option value="en">English</option>
     <option value="cn">简体中文</option>
     <option value="tw">繁體中文</option>
+    <option value="ru">Русский</option>
     <option value="ja">日本語</option>
+    <option value="ko">한국어</option>
     </select>
     <script>
     document.getElementById("language").addEventListener("change", function() {
@@ -76,11 +78,17 @@
     else if (selectedLanguage === 'ja') {
             window.location.href = '../ja/index.html';
     }
+    else if (selectedLanguage === 'ko') {
+            window.location.href = '../ko/index.html';
+    }
+    else if (selectedLanguage === 'ru') {
+            window.location.href = '../ru/index.html';
+    }
+    
 });
     </script>
 <body>
     <h1>Dalian Metro Station Simulator Web</h1>
-    <h2 style="color:red">Please note that your use of this product has by default represented your adherence to the one-China principle!!</h2>
  <!--  <h2>每日诗句推荐>w<</h2>
     <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
     <div id="poem_sentence"></div>
@@ -103,7 +111,7 @@
             </div>
         </a>
         <div class="metro-buttons">
-            <a href="../404.html">
+            <a href="404.html">
                 <div class="metro-button line2">
                     <span class="sub-title">Line 2</span>
                     
@@ -118,7 +126,7 @@
             </div>
         </a>
         <div class="metro-buttons">
-            <a href="../404.html">
+            <a href="404.html">
                 <div class="metro-button line5">
                     <span class="sub-title">Line 5</span>
                     

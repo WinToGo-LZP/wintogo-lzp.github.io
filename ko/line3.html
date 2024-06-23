@@ -1,9 +1,9 @@
 <!DOCTYPE html>  
-<html lang="tw">  
+<html lang="ko">  
 <head>  
 <meta charset="UTF-8">  
 <meta name="metro" content="A software to Simulator Dalian Metro Station">  
-<title>大連地鐵報站模擬器Web版</title>  
+<title>다롄 지하철역 시뮬레이터 웹 버전</title>  
 </head>  
 <body>  
     <link rel="stylesheet" type="css" href="style.css">
@@ -25,9 +25,9 @@ marquee.zimu {
         <marquee scrollamount="25" scrolldelay="20" class="zimu">欢迎使用大连地铁报站模拟器Web版！Welcome use Dalian Metro Station Simulator Web!</marquee>
         </font>
         
-        <button onclick="goBack()">返回主页</button>
-<h1 style="color: white;">大連地鐵3號綫🚇</h1>  
-<h3 style="color: blue;">金石灘==小窯灣==雙D港==保稅區==開發區(換乘3支/13號綫)==金馬路→地鐵海灣基地→大連灣==后鹽(换乘5號綫)==泉水==金家街==香爐礁==大連站(换乘5號綫)</h3>
+        <button onclick="goBack()">홈페이지로 돌아가기</button>
+<h1 style="color: white;">다롄 지하철 3호선🚇</h1>  
+<h3 style="color: blue;">금석반==소요안==쌍디항==보관구역==개발 영역(3지선/13호선 환승)==금마로→지하철 만베이 기지→대련만==후염(5호선 환승)==봄==김가거리==향루교==대련역(5호선 환승)</h3>
 <style>
     body {
         /*加载背景图：图片地址 不平铺 */
@@ -47,41 +47,42 @@ marquee.zimu {
 
 <body background="image/Line3.jpg"></body>
   
-<label style="color: white;for="direction">方向:</label>  
-<select id="direction">  
-    <option value="Jinshitan">金石灘</option>  
-    <option value="Dalianzhan">大連站</option>  
-</select>  
-  
-<label style="color: white;for="position">位置:</label>  
-<select id="position">  
-    <option value="next_station">下一站</option>  
-    <option value="arriving_station">將到站</option>  
-    <option value="arrived_station">已到站</option>  
-</select>  
-  
-<label style="color: white;for="station">站名:</label>  
-<select id="station">  
-    <option value="大连站">大連站</option>  
-    <option value="香炉礁">香爐礁站</option>
-    <option value="金家街">金家街站</option>    
-    <option value="泉水">泉水站</option>
-    <option value="后盐">后鹽站</option>
-    <option value="大连湾">大連灣站</option>
-    <option value="地铁海湾基地">地鐵海灣基地站</option>
-    <option value="金马路">金馬路站</option>  
-    <option value="开发区">開發區站</option>  
-    <option value="保税区">保稅區站</option>
-    <option value="双D港">雙D港站</option>    
-    <option value="小窑湾">小窯灣站</option>
-    <option value="金石滩">金石灘站</option>
+<label style="color: white;" for="direction">방향:</label>
+<select id="direction">
+    <option value="Jinshitan">금석반</option>
+    <option value="Dalianzhan">대련역</option>
+</select>
+
+<label style="color: white;" for="position">위치:</label>
+<select id="position">
+    <option value="next_station">다음 역</option>
+    <option value="arriving_station">다가올 역</option>
+    <option value="arrived_station">도착한 역</option>
+</select>
+
+<label style="color: white;" for="station">역명:</label>
+<select id="station">
+    <option value="大连站">대련역</option>
+    <option value="香炉礁">향루교</option>
+    <option value="金家街">김가거리</option>
+    <option value="泉水">봄</option>
+    <option value="后盐">후염</option>
+    <option value="大连湾">대련만</option>
+    <option value="地铁海湾基地">지하철 만베이 기지</option>
+    <option value="金马路">금마로</option>
+    <option value="开发区">개발 영역</option>
+    <option value="保税区">보관구역</option>
+    <option value="双D港">쌍디항</option>
+    <option value="小窑湾">소요안</option>
+    <option value="金石滩">골든 페블 비치</option>
+</select>
 
     <!-- 可以继续添加其他站名 -->  
 </select>  
   
-<button id="playBtn">開始播放▶︎</button>  
-<button id="stopBtn">停止播放⏹</button>  
-<a <a style="color: white;" href ="https://cloud.189.cn/t/MruyiureYzYb （访问码：paa0）" download="">獲取下載報站音頻</a>
+<button id="playBtn">게임을 시작하세요▶︎</button>  
+<button id="stopBtn">그만 놀기⏹</button>  
+<a <a style="color: white;" href ="https://cloud.189.cn/t/MruyiureYzYb （访问码：paa0）" download="">오디오를 받아 신문을 다운로드하세요.</a>
   
 <audio id="audioPlayer" preload="auto" style="display:none;">  
     <!-- 音频文件源会根据JavaScript动态设置 -->  
