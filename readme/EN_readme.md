@@ -29,6 +29,8 @@ Update log 2024/6/15Late night Project launch
 
 2024/6/23 Korean and Russian language pages are available
 
+2024/7/5 An experimental feature was added to the Chinese page line 12, embedding Bilibili video code to directly view POV.
+
 More metro lines, please stay tuned
 
 Contributions & Feedback
